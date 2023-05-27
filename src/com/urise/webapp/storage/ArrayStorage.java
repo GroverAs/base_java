@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Array based storage for Resumes
  */
-public class ArrayStorage {
+public class ArrayStorage implements Storage {
 
     private int size; // кол-во резюме в массиве
     private final int STORAGE_LIMIT = 10000;
@@ -24,7 +24,7 @@ public class ArrayStorage {
         int index = getIndex(resume.getUuid());
         if (index != -1) {
             System.out.println("Resume with " + resume.getUuid() + " is already exist!");
-        } else if (size == storage.length) {
+        } else if (size == STORAGE_LIMIT) {
             System.out.println("Storage is full");
         } else {
             storage[size] = resume;
