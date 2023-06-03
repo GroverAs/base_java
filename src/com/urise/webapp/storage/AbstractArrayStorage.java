@@ -35,7 +35,6 @@ public abstract class AbstractArrayStorage implements Storage {
             System.out.println("Resume " + uuid + " doesn't exist");
         } else {
             fillDeletedResume(index);
-            storage[index] = storage[size - 1];
             size--;
             storage[size] = null;
         }
