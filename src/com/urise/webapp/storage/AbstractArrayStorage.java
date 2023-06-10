@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public abstract class AbstractArrayStorage implements Storage {
     protected int size;
-    protected static int STORAGE_LIMIT = 10000;
+    protected static final int STORAGE_LIMIT = 10000;
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
 
     public void clear() {
@@ -46,7 +46,7 @@ public abstract class AbstractArrayStorage implements Storage {
 
     public void update(Resume resume) {
         int index = getIndex(resume.getUuid());
-        if (index == -1) {
+        if (index < 0) {
             throw new NotExistStorageException(resume.getUuid());
         } else {
             storage[index] = resume;
