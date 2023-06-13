@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public abstract class AbstractArrayStorageTest {
+public abstract class AbstractStorageTest {
     private final Storage storage;
 
 
@@ -18,12 +18,19 @@ public abstract class AbstractArrayStorageTest {
     private static final String UUID_2 = "uuid2";
     private static final String UUID_3 = "uuid3";
     private static final String UUID_4 = "uuid4";
-    private static final Resume RESUME_1 = new Resume(UUID_1);
-    private static final Resume RESUME_2 = new Resume(UUID_2);
-    private static final Resume RESUME_3 = new Resume(UUID_3);
-    private static final Resume RESUME_4 = new Resume(UUID_4);
+    private static final Resume RESUME_1;
+    private static final Resume RESUME_2;
+    private static final Resume RESUME_3;
+    private static final Resume RESUME_4;
 
-    protected AbstractArrayStorageTest(Storage storage){
+    static {
+        RESUME_1 = new Resume(UUID_1);
+        RESUME_2 = new Resume(UUID_2);
+        RESUME_3 = new Resume(UUID_3);
+        RESUME_4 = new Resume(UUID_4);
+    }
+
+    protected AbstractStorageTest(Storage storage){
         this.storage = storage;
     }
 
@@ -99,6 +106,8 @@ public abstract class AbstractArrayStorageTest {
 
     @Test
     public void get() throws Exception {
+        assertGet(RESUME_1);
+        assertGet(RESUME_2);
         assertGet(RESUME_3);
     }
 
@@ -116,11 +125,11 @@ public abstract class AbstractArrayStorageTest {
     }
 
     public void assertSize(int size) {
-        Assert.assertEquals(size, storage.size());
+        assertEquals(size, storage.size());
     }
 
     public void assertGet(Resume resume) {
-        Assert.assertEquals(resume, storage.get(resume.getUuid()));
+        assertEquals(resume, storage.get(resume.getUuid()));
     }
 
 }

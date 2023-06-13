@@ -20,51 +20,48 @@ public abstract class AbstractArrayStorage extends AbstractStorage{
     public int size() {
         return size;
     }
-    public void save(Resume resume) {
-        int index = getIndex(resume.getUuid());
-        if (index >= 0) {
-            throw new ExistStorageException(resume.getUuid());
-        } else if (size == STORAGE_LIMIT) {
+
+
+    @Override
+    protected void doSave(Resume resume, Object index) {
+        if (size == STORAGE_LIMIT) {
             throw new StorageException("Storage overflow", resume.getUuid());
         } else {
-            addResume(resume, index);
+            addResume(resume, (Integer) index);
             size++;
         }
     }
 
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            throw new NotExistStorageException(uuid);
-        } else {
-            fillDeletedResume(index);
-            size--;
-            storage[size] = null;
-        }
+
+    @Override
+    protected void doDelete(Object index) {
+        fillDeletedResume((Integer) index);
+        storage[size] = null;
+        size--;
     }
 
 
-    public void update(Resume resume) {
-        int index = getIndex(resume.getUuid());
-        if (index < 0) {
-            throw new NotExistStorageException(resume.getUuid());
-        } else {
-            storage[index] = resume;
-        }
+    @Override
+    protected void doUpdate(Resume resume, Object index) {
+        storage[(Integer) index] = resume;
     }
-    public Resume get(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            throw new NotExistStorageException(uuid);
-        }
-        return storage[index];
+
+
+    @Override
+    protected Resume doGet(Object index) {
+        return storage[(Integer) index];
     }
 
     public Resume[] getAll() {
         return Arrays.copyOfRange(storage, 0, size);
     }
 
-    protected abstract int getIndex(String uuid);
+    @Override
+    protected boolean isExist(Object index) {
+        return (Integer) index >= 0;
+    }
+
+    protected abstract Object getSearchKey(String uuid);
 
     protected abstract void fillDeletedResume(int index);
 
