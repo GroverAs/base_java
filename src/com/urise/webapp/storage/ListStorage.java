@@ -22,15 +22,15 @@ public class ListStorage extends AbstractStorage{
     }
 
     @Override
-    protected void doDelete(Object searchKey) {
-        resumeList.remove((Integer) searchKey);
+    protected void doDelete(Integer searchKey) {
+        resumeList.remove(searchKey.intValue());
 
     }
 
     @Override
     protected Integer getSearchKey(String uuid) {
         for(int i = 0; i < resumeList.size(); i++) {
-            if (resumeList.get(i).equals(uuid)){
+            if (resumeList.get(i).getUuid().equals(uuid)){
                 return i;
             }
         }

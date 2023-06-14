@@ -2,7 +2,6 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.NotExistStorageException;
-import com.urise.webapp.exception.StorageException;
 import com.urise.webapp.model.Resume;
 
 
@@ -12,7 +11,7 @@ public abstract class AbstractStorage implements Storage {
 
     protected abstract void doUpdate(Resume resume, Object searchKey);
 
-    protected abstract void doDelete(Object searchKey);
+    protected abstract void doDelete(Integer searchKey);
 
     protected abstract Object getSearchKey(String uuid);
 
@@ -35,7 +34,7 @@ public abstract class AbstractStorage implements Storage {
         if (!isExist(searchKey)) {
             throw new NotExistStorageException(uuid);
         } else {
-            doDelete(searchKey);
+            doDelete((Integer) searchKey);
         }
     }
 
