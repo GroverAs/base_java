@@ -11,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public abstract class AbstractStorageTest {
-    private final Storage storage;
+protected final Storage storage;
 
 
     private static final String UUID_1 = "uuid1";
@@ -68,17 +68,6 @@ public abstract class AbstractStorageTest {
         storage.save(RESUME_2);
     }
 
-    @Test(expected = StorageException.class)
-    public void saveOverflow() throws Exception {
-        try {
-            for (int i = 4; i <= AbstractArrayStorage.STORAGE_LIMIT; i++) {
-                storage.save(new Resume());
-            }
-        } catch (StorageException e) {
-            fail("Overflow occurred ahead of time");
-        }
-        storage.save(new Resume());
-    }
 
     @Test(expected = NotExistStorageException.class)
     public void delete() throws Exception {
