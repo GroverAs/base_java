@@ -11,7 +11,7 @@ public abstract class AbstractStorage implements Storage {
 
     protected abstract void doUpdate(Resume resume, Object searchKey);
 
-    protected abstract void doDelete(Integer searchKey);
+    protected abstract void doDelete(Object searchKey);
 
     protected abstract Object getSearchKey(String uuid);
 
@@ -34,7 +34,7 @@ public abstract class AbstractStorage implements Storage {
         if (!isExist(searchKey)) {
             throw new NotExistStorageException(uuid);
         } else {
-            doDelete((Integer) searchKey);
+            doDelete(searchKey);
         }
     }
 
