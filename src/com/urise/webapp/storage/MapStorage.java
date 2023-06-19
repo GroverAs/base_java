@@ -51,7 +51,7 @@ public class MapStorage extends AbstractStorage{
 
     @Override
     public List<Resume> doGetAll() {
-        return ****
+        return null;
     }
 
     @Override

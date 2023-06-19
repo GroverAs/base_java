@@ -5,7 +5,6 @@ import com.urise.webapp.model.Resume;
 
 import java.util.Arrays;
 import java.util.List;
-
 import static java.util.Arrays.copyOfRange;
 
 public abstract class AbstractArrayStorage extends AbstractStorage{
@@ -53,7 +52,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage{
         return storage[(Integer) index];
     }
 
-    public List<Resume> getAllSorted() {
+    public List<Resume> doGetAll() {
         return Arrays.asList(copyOfRange(storage, 0, size));
     }
 
