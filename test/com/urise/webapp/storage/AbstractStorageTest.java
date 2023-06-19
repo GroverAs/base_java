@@ -2,11 +2,13 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.NotExistStorageException;
-import com.urise.webapp.exception.StorageException;
 import com.urise.webapp.model.Resume;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -24,10 +26,10 @@ protected final Storage storage;
     private static final Resume RESUME_4;
 
     static {
-        RESUME_1 = new Resume(UUID_1);
-        RESUME_2 = new Resume(UUID_2);
-        RESUME_3 = new Resume(UUID_3);
-        RESUME_4 = new Resume(UUID_4);
+        RESUME_1 = new Resume(UUID_1,"Name_1");
+        RESUME_2 = new Resume(UUID_2,"Name_2");
+        RESUME_3 = new Resume(UUID_3,"Name_3");
+        RESUME_4 = new Resume(UUID_4,"Name_4");
     }
 
     protected AbstractStorageTest(Storage storage){
@@ -47,8 +49,8 @@ protected final Storage storage;
     public void clear() throws Exception {
         storage.clear();
         assertSize(0);
-        Resume[] resumes = storage.getAll();
-        assertEquals(0, resumes.length);
+        List<Resume> resumes = storage.getAllSorted();
+        assertEquals(0, resumes.size());
     }
 
     @Test
@@ -83,7 +85,7 @@ protected final Storage storage;
 
     @Test
     public void update() throws Exception {
-        Resume resumeNew = new Resume(UUID_1);
+        Resume resumeNew = new Resume(UUID_1, "new Name");
         storage.update(resumeNew);
         assertSame(resumeNew, storage.get(UUID_1));
     }
@@ -106,11 +108,10 @@ protected final Storage storage;
     }
 
     @Test
-    public void getAll() throws Exception {
-        Resume[] expected = {RESUME_1, RESUME_2, RESUME_3};
-        Assert.assertEquals(RESUME_1, expected[0]);
-        Assert.assertEquals(RESUME_2, expected[1]);
-        Assert.assertEquals(RESUME_3, expected[2]);
+    public void getAllSorted() throws Exception {
+        List<Resume> list = storage.getAllSorted();
+        assertEquals(3, list.size());
+        Assert.assertEquals(list, Arrays.asList(RESUME_1, RESUME_2, RESUME_3));
     }
 
     public void assertSize(int size) {

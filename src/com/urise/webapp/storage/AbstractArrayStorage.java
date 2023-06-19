@@ -1,11 +1,12 @@
 package com.urise.webapp.storage;
 
-import com.urise.webapp.exception.ExistStorageException;
-import com.urise.webapp.exception.NotExistStorageException;
 import com.urise.webapp.exception.StorageException;
 import com.urise.webapp.model.Resume;
 
 import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Arrays.copyOfRange;
 
 public abstract class AbstractArrayStorage extends AbstractStorage{
     protected int size;
@@ -52,8 +53,8 @@ public abstract class AbstractArrayStorage extends AbstractStorage{
         return storage[(Integer) index];
     }
 
-    public Resume[] getAll() {
-        return Arrays.copyOfRange(storage, 0, size);
+    public List<Resume> getAllSorted() {
+        return Arrays.asList(copyOfRange(storage, 0, size));
     }
 
     @Override
