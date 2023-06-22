@@ -10,9 +10,9 @@ import java.util.List;
 public interface Storage {
     public void clear();
 
-    public void update(Resume resume);
+    public void update(Resume r);
 
-    public void save(Resume resume);
+    public void save(Resume r);
 
     Resume get(String uuid);
 

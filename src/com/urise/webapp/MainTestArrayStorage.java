@@ -10,24 +10,24 @@ public class MainTestArrayStorage {
     static final ArrayStorage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) {
-        final Resume resume1 = new Resume("uuid1","Name_1");
-        final Resume resume2 = new Resume("uuid2","Name_2");
-        final Resume resume3 = new Resume("uuid3","Name_3");
+        final Resume r1 = new Resume("uuid1","Name_1");
+        final Resume r2 = new Resume("uuid2","Name_2");
+        final Resume r3 = new Resume("uuid3","Name_3");
 
-        ARRAY_STORAGE.save(resume1);
-        ARRAY_STORAGE.save(resume2);
-        ARRAY_STORAGE.save(resume3);
+        ARRAY_STORAGE.save(r1);
+        ARRAY_STORAGE.save(r2);
+        ARRAY_STORAGE.save(r3);
 
-        System.out.println("Get resume1: " + ARRAY_STORAGE.get(resume1.getUuid()));
+        System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.getUuid()));
         System.out.println("Size: " + ARRAY_STORAGE.size());
 
         System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
 
-        ARRAY_STORAGE.update(resume2);
-        System.out.println("Updated resume resume2: " + resume2);
+        ARRAY_STORAGE.update(r2);
+        System.out.println("Updated resume r2: " + r2);
 
         printAll();
-        ARRAY_STORAGE.delete(resume1.getUuid());
+        ARRAY_STORAGE.delete(r1.getUuid());
         printAll();
         ARRAY_STORAGE.clear();
         printAll();

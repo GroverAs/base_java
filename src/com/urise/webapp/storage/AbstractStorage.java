@@ -13,9 +13,9 @@ public abstract class AbstractStorage implements Storage {
 
     private static final Comparator<Resume> COMPARATOR = Comparator.comparing(Resume::getUuid).thenComparing(Resume::getFullName);
 
-    protected abstract void doSave(Resume resume, Object searchKey);
+    protected abstract void doSave(Resume r, Object searchKey);
 
-    protected abstract void doUpdate(Resume resume, Object searchKey);
+    protected abstract void doUpdate(Resume r, Object searchKey);
 
     protected abstract void doDelete(Object searchKey);
 
@@ -29,9 +29,9 @@ public abstract class AbstractStorage implements Storage {
 
 
 
-    public void save(Resume resume) {
-        Object searchKey = getNotExistingSearchKey(resume.getUuid());
-            doSave(resume, searchKey);
+    public void save(Resume r) {
+        Object searchKey = getNotExistingSearchKey(r.getUuid());
+            doSave(r, searchKey);
         }
 
 
@@ -41,9 +41,9 @@ public abstract class AbstractStorage implements Storage {
     }
 
 
-    public void update(Resume resume) {
-        Object searchKey = getExistingSearchKey(resume.getUuid());
-            doUpdate(resume, searchKey);
+    public void update(Resume r) {
+        Object searchKey = getExistingSearchKey(r.getUuid());
+            doUpdate(r, searchKey);
         }
 
 

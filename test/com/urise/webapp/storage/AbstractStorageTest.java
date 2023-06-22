@@ -49,8 +49,8 @@ protected final Storage storage;
     public void clear() throws Exception {
         storage.clear();
         assertSize(0);
-        List<Resume> resumes = storage.getAllSorted();
-        assertEquals(0, resumes.size());
+        List<Resume> rs = storage.getAllSorted();
+        assertEquals(0, rs.size());
     }
 
     @Test
@@ -85,9 +85,9 @@ protected final Storage storage;
 
     @Test
     public void update() throws Exception {
-        Resume resumeNew = new Resume(UUID_1, "new Name");
-        storage.update(resumeNew);
-        assertSame(resumeNew, storage.get(UUID_1));
+        Resume newResume = new Resume(UUID_1, "new Name");
+        storage.update(newResume);
+        assertSame(newResume, storage.get(UUID_1));
     }
 
     @Test(expected = NotExistStorageException.class)
@@ -118,8 +118,8 @@ protected final Storage storage;
         assertEquals(size, storage.size());
     }
 
-    public void assertGet(Resume resume) {
-        assertEquals(resume, storage.get(resume.getUuid()));
+    public void assertGet(Resume r) {
+        assertEquals(r, storage.get(r.getUuid()));
     }
 
 }

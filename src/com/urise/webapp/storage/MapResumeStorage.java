@@ -12,20 +12,20 @@ public class MapResumeStorage extends AbstractStorage{
     private final Map<String, Resume> storage = new HashMap<>();
 
     @Override
-    protected void doSave(Resume resume, Object res) {
-        storage.put(resume.getUuid(), resume);
+    protected void doSave(Resume r, Object resume) {
+        storage.put(r.getUuid(), r);
 
     }
 
     @Override
-    protected void doUpdate(Resume resume, Object res) {
-        storage.put(resume.getUuid(), resume);
+    protected void doUpdate(Resume r, Object resume) {
+        storage.put(r.getUuid(), r);
 
     }
 
     @Override
-    protected void doDelete(Object res) {
-        storage.remove(((Resume)res).getUuid());
+    protected void doDelete(Object resume) {
+        storage.remove(((Resume)resume).getUuid());
 
     }
 
@@ -36,13 +36,13 @@ public class MapResumeStorage extends AbstractStorage{
     }
 
     @Override
-    protected boolean isExist(Object res) {
-        return res != null;
+    protected boolean isExist(Object resume) {
+        return resume != null;
     }
 
     @Override
-    protected Resume doGet(Object res) {
-        return (Resume) res;
+    protected Resume doGet(Object resume) {
+        return (Resume) resume;
     }
 
     @Override
