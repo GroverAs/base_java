@@ -1,41 +1,34 @@
 package com.urise.webapp.model;
 
-import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.Objects;
 
 public class Company {
 
-    public final String title;
+    private final String name;
 
-    public final String description;
+    private final String webSite;
 
-    public final LocalDate startDate;
+    private final List<Period> periods;
 
-    public final LocalDate endDate;
 
-    public Company(String title, String description, List<Period> periods, LocalDate startDate, LocalDate endDate) {
-        this.title = title;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Company(String name, String webSite, List<Period> periods) {
+        this.name = name;
+        this.webSite = webSite;
+        this.periods = periods;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getWebSite() {
+        return webSite;
     }
 
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
+    public List<Period> getPeriods() {
+        return periods;
     }
 
     @Override
@@ -45,18 +38,25 @@ public class Company {
 
         Company company = (Company) o;
 
-        if (!title.equals(company.title)) return false;
-        if (!description.equals(company.description)) return false;
-        if (!startDate.equals(company.startDate)) return false;
-        return endDate.equals(company.endDate);
+        if (!name.equals(company.name)) return false;
+        if (!Objects.equals(webSite, company.webSite)) return false;
+        return periods.equals(company.periods);
     }
 
     @Override
     public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + description.hashCode();
-        result = 31 * result + startDate.hashCode();
-        result = 31 * result + endDate.hashCode();
+        int result = name.hashCode();
+        result = 31 * result + (webSite != null ? webSite.hashCode() : 0);
+        result = 31 * result + periods.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                ", webSite='" + webSite + '\'' +
+                ", periods=" + periods +
+                '}';
     }
 }
