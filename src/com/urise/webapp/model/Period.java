@@ -14,6 +14,9 @@ public class Period {
     private final LocalDate endDate;
 
     public Period(String title, String description, LocalDate startDate, LocalDate endDate) {
+        Objects.requireNonNull(startDate, "startDate must not be null");
+        Objects.requireNonNull(endDate, "endDate must not be null");
+        Objects.requireNonNull(title, "title must not be null");
         this.title = title;
         this.description = description;
         this.startDate = startDate;
