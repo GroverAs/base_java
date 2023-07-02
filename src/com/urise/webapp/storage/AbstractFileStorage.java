@@ -83,11 +83,10 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
             throw new StorageException("Directory error", null);
         }
         List<Resume> list = new ArrayList<>();
-        for(Resume lists : list){
-            // ****************
+        for(File file : files){
+            list.add(doGet(file));
         }
-
-        return null;
+        return list;
     }
 
     @Override

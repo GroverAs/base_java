@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 public abstract class AbstractStorageTest {
 protected final Storage storage;
 
-
     private static final String UUID_1 = "uuid1";
     private static final String UUID_2 = "uuid2";
     private static final String UUID_3 = "uuid3";
