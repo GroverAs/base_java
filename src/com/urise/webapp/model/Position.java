@@ -1,12 +1,10 @@
 package com.urise.webapp.model;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.Objects;
 
-import static com.urise.webapp.util.DateUtil.of;
 
-public class Period {
+public class Position {
 
     private final String title;
 
@@ -17,7 +15,7 @@ public class Period {
     private final LocalDate endDate;
 
 
-    public Period(String title, String description, LocalDate startDate, LocalDate endDate) {
+    public Position(LocalDate startDate, LocalDate endDate, String title, String description) {
             Objects.requireNonNull(startDate, "startDate must not be null");
             Objects.requireNonNull(endDate, "endDate must not be null");
             Objects.requireNonNull(title, "title must not be null");
@@ -48,7 +46,7 @@ public class Period {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
 
-            Period period = (Period) o;
+            Position period = (Position) o;
 
             if (!title.equals(period.title)) return false;
             if (!Objects.equals(description, period.description)) return false;

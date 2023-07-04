@@ -1,6 +1,5 @@
 package com.urise.webapp.model;
 
-import java.time.Period;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,13 +9,12 @@ public class Company {
 
     private final String webSite;
 
-    private final List<Period> periods;
+    private final List<Position> positions;
 
-
-    public Company(String name, String webSite, List<Period> periods) {
+    public Company(String name, String webSite, List<Position> positions) {
         this.name = name;
         this.webSite = webSite;
-        this.periods = periods;
+        this.positions = positions;
     }
 
     public String getName() {
@@ -27,8 +25,8 @@ public class Company {
         return webSite;
     }
 
-    public List<Period> getPeriods() {
-        return periods;
+    public List<Position> getPeriods() {
+        return positions;
     }
 
     @Override
@@ -40,14 +38,14 @@ public class Company {
 
         if (!name.equals(company.name)) return false;
         if (!Objects.equals(webSite, company.webSite)) return false;
-        return periods.equals(company.periods);
+        return positions.equals(company.positions);
     }
 
     @Override
     public int hashCode() {
         int result = name.hashCode();
         result = 31 * result + (webSite != null ? webSite.hashCode() : 0);
-        result = 31 * result + periods.hashCode();
+        result = 31 * result + positions.hashCode();
         return result;
     }
 
@@ -56,7 +54,7 @@ public class Company {
         return "Company{" +
                 "name='" + name + '\'' +
                 ", webSite='" + webSite + '\'' +
-                ", periods=" + periods +
+                ", positions=" + positions +
                 '}';
     }
 }

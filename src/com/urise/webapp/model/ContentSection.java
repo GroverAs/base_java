@@ -1,11 +1,16 @@
 package com.urise.webapp.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ContentSection extends AbstractSection{
 
     private final List<String> elements;
+
+    public ContentSection(String... elements) {
+        this(Arrays.asList(elements));
+    }
 
     public ContentSection(List<String> elements) {
         this.elements = elements;

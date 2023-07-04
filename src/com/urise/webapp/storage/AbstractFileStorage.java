@@ -23,7 +23,6 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
             throw new IllegalArgumentException(directory.getAbsolutePath() + "is not readable/writable");
         }
         this.directory = directory;
-
     }
 
     @Override
@@ -41,8 +40,6 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
         }
     }
 
-    protected abstract void doWrite(Resume r, File file) throws IOException;
-    protected abstract Resume doRead(File file) throws IOException;
 
     @Override
     protected void doUpdate(Resume r, File file) {
@@ -70,20 +67,19 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
     protected Resume doGet(File file) {
         try {
             return doRead(file);
-        }catch (IOException e){
+        } catch (IOException e) {
             throw new StorageException("File read error", file.getName(), e);
         }
-
     }
 
     @Override
     protected List<Resume> doGetAll() {
         File[] files = directory.listFiles();
-        if(files==null){
+        if (files == null) {
             throw new StorageException("Directory error", null);
         }
         List<Resume> list = new ArrayList<>();
-        for(File file : files){
+        for (File file : files) {
             list.add(doGet(file));
         }
         return list;
@@ -92,12 +88,13 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
     @Override
     public void clear() {
         File[] files = directory.listFiles();
-        if(files != null){
+        if(files == null) {
+            throw new StorageException("Directory error", null);
+        }
             for(File file : files){
                 doDelete(file);
             }
         }
-    }
 
     @Override
     public int size() {
@@ -107,4 +104,7 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
         }
         return list.length;
     }
+
+    protected abstract void doWrite(Resume r, File file) throws IOException;
+    protected abstract Resume doRead(File file) throws IOException;
 }
