@@ -1,10 +1,11 @@
 package com.urise.webapp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 
-public class Position {
+public class Position implements Serializable {
 
     private final String title;
 
