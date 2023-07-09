@@ -9,13 +9,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public abstract class AbstractStorageTest {
-    protected static final File STORAGE_DIR = new File("D:\\JAVA\\BaseJava\\base_java\\src\\com\\urise\\webapp\\storage");
+    protected static final File STORAGE_DIR = new File("D:\\JAVA\\BaseJava\\base_java\\storage");
     protected final Storage storage;
 
     private static final String UUID_1 = "uuid1";
@@ -116,7 +117,7 @@ public abstract class AbstractStorageTest {
         Assert.assertEquals(list, Arrays.asList(RESUME_1, RESUME_2, RESUME_3));
     }
 
-    public void assertSize(int size) {
+    public void assertSize(int size) throws Exception {
         assertEquals(size, storage.size());
     }
 
