@@ -9,11 +9,14 @@ public class Company implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private final String name;
+    private String name;
 
-    private final String webSite;
+    private String webSite;
 
-    private final List<Position> positions;
+    private List<Position> positions;
+
+    public Company() {
+    }
 
     public Company(String name, String webSite, List<Position> positions) {
         this.name = name;

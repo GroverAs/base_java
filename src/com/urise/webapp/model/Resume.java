@@ -11,13 +11,16 @@ public class Resume implements Comparable<Resume>, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private final String uuid;
+    private String uuid;
 
-    private final String fullName;
+    private String fullName;
 
     private final EnumMap<ContactType, String> contacts = new EnumMap<>(ContactType.class);
 
     private final EnumMap<SectionType, AbstractSection> sections = new EnumMap<>(SectionType.class);
+
+    public Resume() {
+    }
 
     public Resume(String fullName) {
         this(UUID.randomUUID().toString(), fullName);

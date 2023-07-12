@@ -9,7 +9,10 @@ public class ContentSection extends AbstractSection{
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private final List<String> elements;
+    private List<String> elements;
+
+    public ContentSection() {
+    }
 
     public ContentSection(String... elements) {
         this(Arrays.asList(elements));

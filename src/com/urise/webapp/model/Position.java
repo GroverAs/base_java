@@ -7,13 +7,16 @@ import java.util.Objects;
 
 public class Position implements Serializable {
 
-    private final String title;
+    private String title;
 
-    private final String description;
+    private String description;
 
-    private final LocalDate startDate;
+    private LocalDate startDate;
 
-    private final LocalDate endDate;
+    private LocalDate endDate;
+
+    public Position() {
+    }
 
 
     public Position(LocalDate startDate, LocalDate endDate, String title, String description) {
