@@ -6,7 +6,6 @@ import javax.xml.bind.Unmarshaller;
 import java.io.Reader;
 import java.io.Writer;
 
-
 public class XmlParser {
 
     private final Marshaller marshaller;
@@ -19,7 +18,7 @@ public class XmlParser {
             marshaller = ctx.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-//            marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
+            marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
 
             unmarshaller = ctx.createUnmarshaller();
         } catch (JAXBException e) {
