@@ -1,6 +1,9 @@
 package com.urise.webapp.model;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.urise.webapp.util.JsonSectionAdapter;
 import com.urise.webapp.util.LocalDateAdapter;
+import com.urise.webapp.util.LocalDateTypeAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -16,8 +19,11 @@ public class Position implements Serializable {
 
     private String description;
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
+//    @JsonAdapter(JsonSectionAdapter.class)
     private LocalDate startDate;
+
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
+//    @JsonAdapter(JsonSectionAdapter.class)
     private LocalDate endDate;
 
     public Position() {

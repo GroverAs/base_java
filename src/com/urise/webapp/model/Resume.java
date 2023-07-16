@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.EnumMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -20,9 +21,9 @@ public class Resume implements Comparable<Resume>, Serializable {
 
     private String fullName;
 
-    private final EnumMap<ContactType, String> contacts = new EnumMap<>(ContactType.class);
+    private final Map<ContactType, String> contacts = new EnumMap<>(ContactType.class);
 
-    private final EnumMap<SectionType, AbstractSection> sections = new EnumMap<>(SectionType.class);
+    private final Map<SectionType, AbstractSection> sections = new EnumMap<>(SectionType.class);
 
     public Resume() {
     }
