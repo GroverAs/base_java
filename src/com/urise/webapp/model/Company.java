@@ -23,7 +23,7 @@ public class Company implements Serializable {
 
     public Company(String name, String webSite, List<Position> positions) {
         this.name = name;
-        this.webSite = webSite;
+        this.webSite = webSite == null ? "" : webSite;
         this.positions = positions;
     }
 
@@ -35,7 +35,7 @@ public class Company implements Serializable {
         return webSite;
     }
 
-    public List<Position> getPeriods() {
+    public List<Position> getPositions() {
         return positions;
     }
 
