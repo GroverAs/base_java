@@ -3,6 +3,7 @@ package com.urise.webapp.model;
 import java.io.Serial;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ContentSection extends Section{
     @Serial
@@ -18,6 +19,7 @@ public class ContentSection extends Section{
     }
 
     public ContentSection(List<String> elements) {
+        Objects.requireNonNull(elements, "items must not be null");
         this.elements = elements;
     }
 
@@ -42,8 +44,6 @@ public class ContentSection extends Section{
 
     @Override
     public String toString() {
-        return "ContentSection{" +
-                "elements=" + elements +
-                '}';
+        return elements.toString();
     }
 }

@@ -2,6 +2,7 @@ package com.urise.webapp.serializer;
 
 import com.urise.webapp.model.*;
 
+import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class DataStreamSerializer implements Serializer {
                 return resume;
             }
             for (int i = 0; i < size; i++) {
-                addSection(resume, dis);
+                readSection(resume, dis);
             }
             return resume;
         }
@@ -67,12 +68,10 @@ public class DataStreamSerializer implements Serializer {
     }
 
     private void writeTextSection(DataOutputStream dos, TextSection textSection) throws IOException {
-        dos.writeUTF("TextSection");
         dos.writeUTF(textSection.getContent());
     }
 
     private void writeContentSection(DataOutputStream dos, ContentSection contentSection) throws IOException {
-        dos.writeUTF("ContentSection");
         List<String> elements = contentSection.getElements();
         dos.writeInt(elements.size());
         for (String s : elements) {
@@ -81,7 +80,6 @@ public class DataStreamSerializer implements Serializer {
     }
 
     private void writeCompanySection(DataOutputStream dos, CompanySection companySection) throws IOException {
-        dos.writeUTF("CompanySection");
         List<Company> companies = companySection.getCompanies();
         dos.writeInt(companies.size());
         for (Company company : companies) {
@@ -97,13 +95,13 @@ public class DataStreamSerializer implements Serializer {
         }
     }
 
-    private void addSection(Resume resume, DataInputStream dis) throws IOException {
+    private void readSection(Resume resume, DataInputStream dis) throws IOException {
         SectionType sectionType = SectionType.valueOf(dis.readUTF());
-        String section = dis.readUTF();
-        switch (section) {
-            case "TextSection" -> addTextSection(resume, dis, sectionType);
-            case "ContentSection" -> addContentSection(resume, dis, sectionType);
-            case "CompanySection" -> addCompanySection(resume, dis, sectionType);
+        switch (sectionType) {
+            case PERSONAL, OBJECTIVE -> addTextSection(resume, dis, sectionType);
+            case ACHIEVEMENT, QUALIFICATIONS -> addContentSection(resume, dis, sectionType);
+            case EXPERIENCE, EDUCATION -> addCompanySection(resume, dis, sectionType);
+            default -> throw new IllegalStateException("Unexpected value: " + sectionType);
         }
     }
 
@@ -112,13 +110,13 @@ public class DataStreamSerializer implements Serializer {
         resume.addSection(sectionType, new TextSection(dis.readUTF()));
     }
 
-    private void addContentSection(Resume r, DataInputStream dis, SectionType sectionType) throws IOException {
+    private void addContentSection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
         List<String> items = new ArrayList<>();
         int size = dis.readInt();
         for (int i = 0; i < size; i++) {
             items.add(dis.readUTF());
         }
-        r.addSection(sectionType, new CompanySection((Company) items));
+        resume.addSection(sectionType, new ContentSection(dis.readUTF()));
     }
 
     private void addCompanySection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
@@ -127,7 +125,6 @@ public class DataStreamSerializer implements Serializer {
         for (int i = 0; i < size; i++) {
             String name = dis.readUTF();
             String webSite = dis.readUTF();
-            if (webSite.equals("")) webSite = null;
             int posSize = dis.readInt();
             List<Position> positions = new ArrayList<>();
             for (int j = 0; j < posSize; j++) {
@@ -135,7 +132,6 @@ public class DataStreamSerializer implements Serializer {
                 LocalDate endDate = LocalDate.parse(dis.readUTF());
                 String title = dis.readUTF();
                 String description = dis.readUTF();
-                if (description.equals("")) description = null;
                 positions.add(new Position(startDate, endDate, title, description));
             }
             resume.addSection(sectionType, new CompanySection());
