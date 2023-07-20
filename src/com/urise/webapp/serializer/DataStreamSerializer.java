@@ -5,10 +5,11 @@ import com.urise.webapp.model.*;
 import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+
 
 
 public class DataStreamSerializer implements Serializer {
@@ -47,9 +48,6 @@ public class DataStreamSerializer implements Serializer {
                 resume.addContact(ContactType.valueOf(dis.readUTF()), dis.readUTF());
             }
             size = dis.readInt();
-            if (size == 0) {
-                return resume;
-            }
             for (int i = 0; i < size; i++) {
                 readSection(resume, dis);
             }
@@ -87,13 +85,22 @@ public class DataStreamSerializer implements Serializer {
             dos.writeUTF(company.getWebSite());
             List<Position> positions = company.getPositions();
             for (Position position : positions) {
-                dos.writeUTF(position.getStartDate().toString());
-                dos.writeUTF(position.getEndDate().toString());
+                writeLocalDate(dos, position.getStartDate());
+                writeLocalDate(dos, position.getEndDate());
                 dos.writeUTF(position.getTitle());
-                String description = position.getDescription();
+                dos.writeUTF(position.getDescription());
             }
         }
     }
+
+    private void writeLocalDate(DataOutputStream dos, LocalDate localDate) throws IOException {
+        dos.writeInt(localDate.getYear());
+        dos.writeInt(localDate.getMonth().getValue());
+    }
+    private LocalDate readLocalDate(DataInputStream dis) throws IOException {
+        return LocalDate.of(dis.readInt(), dis.readInt(), 1);
+    }
+
 
     private void readSection(Resume resume, DataInputStream dis) throws IOException {
         SectionType sectionType = SectionType.valueOf(dis.readUTF());
@@ -111,31 +118,32 @@ public class DataStreamSerializer implements Serializer {
     }
 
     private void addContentSection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
-        List<String> items = new ArrayList<>();
         int size = dis.readInt();
+        List<String> items = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             items.add(dis.readUTF());
         }
-        resume.addSection(sectionType, new ContentSection(dis.readUTF()));
+        resume.addSection(sectionType, new ContentSection(items));
     }
 
     private void addCompanySection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
+        List<Company> companies = new ArrayList<>();
         int size = dis.readInt();
-        List<Company> companies = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             String name = dis.readUTF();
             String webSite = dis.readUTF();
             int posSize = dis.readInt();
             List<Position> positions = new ArrayList<>();
             for (int j = 0; j < posSize; j++) {
-                LocalDate startDate = LocalDate.parse(dis.readUTF());
-                LocalDate endDate = LocalDate.parse(dis.readUTF());
+                LocalDate startDate = readLocalDate(dis);
+                LocalDate endDate = readLocalDate(dis);
                 String title = dis.readUTF();
                 String description = dis.readUTF();
                 positions.add(new Position(startDate, endDate, title, description));
             }
-            resume.addSection(sectionType, new CompanySection());
+            companies.add(new Company(name, webSite, positions));
         }
+        resume.addSection(sectionType, new CompanySection(companies));
     }
 }
 
