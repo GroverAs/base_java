@@ -84,6 +84,7 @@ public class DataStreamSerializer implements Serializer {
             dos.writeUTF(company.getName());
             dos.writeUTF(company.getWebSite());
             List<Position> positions = company.getPositions();
+            dos.writeInt(positions.size());
             for (Position position : positions) {
                 writeLocalDate(dos, position.getStartDate());
                 writeLocalDate(dos, position.getEndDate());
@@ -132,8 +133,8 @@ public class DataStreamSerializer implements Serializer {
         for (int i = 0; i < size; i++) {
             String name = dis.readUTF();
             String webSite = dis.readUTF();
-            int posSize = dis.readInt();
             List<Position> positions = new ArrayList<>();
+            int posSize = dis.readInt();
             for (int j = 0; j < posSize; j++) {
                 LocalDate startDate = readLocalDate(dis);
                 LocalDate endDate = readLocalDate(dis);
