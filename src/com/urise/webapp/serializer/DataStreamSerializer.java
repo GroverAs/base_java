@@ -5,11 +5,11 @@ import com.urise.webapp.model.*;
 import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
+import java.util.function.Consumer;
 
 
 public class DataStreamSerializer implements Serializer {
@@ -20,11 +20,10 @@ public class DataStreamSerializer implements Serializer {
             dos.writeUTF(r.getUuid());
             dos.writeUTF(r.getFullName());
             Map<ContactType, String> contacts = r.getContacts();
-            dos.writeInt(contacts.size());
-            for (Map.Entry<ContactType, String> entry : contacts.entrySet()) {
+            writeWithException(contacts.entrySet(), dos, entry -> {
                 dos.writeUTF(entry.getKey().name());
                 dos.writeUTF(entry.getValue());
-            }
+            });
 
             Map<SectionType, Section> sections = r.getSections();
             dos.writeInt(sections.size());
@@ -43,11 +42,9 @@ public class DataStreamSerializer implements Serializer {
             String uuid = dis.readUTF();
             String fullName = dis.readUTF();
             Resume resume = new Resume(uuid, fullName);
+            readWithException(dis, ()-> resume.addContact(ContactType.valueOf(dis.readUTF()), dis.readUTF()));
+
             int size = dis.readInt();
-            for (int i = 0; i < size; i++) {
-                resume.addContact(ContactType.valueOf(dis.readUTF()), dis.readUTF());
-            }
-            size = dis.readInt();
             for (int i = 0; i < size; i++) {
                 readSection(resume, dis);
             }
@@ -146,6 +143,29 @@ public class DataStreamSerializer implements Serializer {
         }
         resume.addSection(sectionType, new CompanySection(companies));
     }
+
+    private interface collectionWriter<T> {
+        void write(T t) throws IOException;
+    }
+
+    private <T> void writeWithException(Collection<T> collection, DataOutputStream dos, collectionWriter<T> writer) throws IOException {
+        dos.writeInt(collection.size());
+        for (T collections : collection) {
+            writer.write(collections);
+        }
+    }
+
+    private interface collectionReader<T> {
+        void read() throws IOException;
+    }
+
+    private <T> void readWithException(DataInputStream dis, collectionReader<T> reader) throws IOException {
+        int size = dis.readInt();
+        for (int i = 0; i < size; i++) {
+            reader.read();
+        }
+    }
+
 }
 
 
