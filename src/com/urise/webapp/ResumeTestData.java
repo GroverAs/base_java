@@ -34,16 +34,16 @@ public class ResumeTestData {
                                                 LocalDate.of(2005, Month.APRIL, 1),
                                                 LocalDate.of(2007, Month.JULY, 1),
                                                 "Middle developer", "all is good")))));
-//        resume.addSection(SectionType.EDUCATION,
-//                new CompanySection(
-//                        new Company("University", null,
-//                                List.of(new Position(
-//                                                LocalDate.of(1996, Month.FEBRUARY, 1),
-//                                                LocalDate.of(2000, Month.DECEMBER, 1),
-//                                                "student", "IT faculty"),
-//                                        new Position(LocalDate.of(2001, Month.SEPTEMBER, 1),
-//                                                LocalDate.of(2003, Month.JUNE, 1),
-//                                                "aspirant", null)))));
+        resume.addSection(SectionType.EDUCATION,
+                new CompanySection(
+                        new Company("University", null,
+                                List.of(new Position(
+                                                LocalDate.of(1996, Month.FEBRUARY, 1),
+                                                LocalDate.of(2000, Month.DECEMBER, 1),
+                                                "student", "IT faculty"),
+                                        new Position(LocalDate.of(2001, Month.SEPTEMBER, 1),
+                                                LocalDate.of(2003, Month.JUNE, 1),
+                                                "aspirant", null)))));
         return resume;
     }
 }

@@ -2,38 +2,35 @@ package com.urise.webapp.serializer;
 
 import com.urise.webapp.model.*;
 
-import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 
 public class DataStreamSerializer implements Serializer {
 
     @Override
-    public void doWrite(Resume r, OutputStream os) throws IOException {
+    public void doWrite(Resume resume, OutputStream os) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(os)) {
-            dos.writeUTF(r.getUuid());
-            dos.writeUTF(r.getFullName());
-            Map<ContactType, String> contacts = r.getContacts();
-            writeWithException(contacts.entrySet(), dos, entry -> {
+            dos.writeUTF(resume.getUuid());
+            dos.writeUTF(resume.getFullName());
+            Map<ContactType, String> contacts = resume.getContacts();
+            writeWithException(dos, contacts.entrySet(), entry -> {
                 dos.writeUTF(entry.getKey().name());
                 dos.writeUTF(entry.getValue());
             });
-
-            Map<SectionType, Section> sections = r.getSections();
-            dos.writeInt(sections.size());
-            for (Map.Entry<SectionType, Section> entry : sections.entrySet()) {
+            Map<SectionType, Section> sections = resume.getSections();
+            writeWithException(dos, sections.entrySet(), entry -> {
                 dos.writeUTF(entry.getKey().name());
                 writeSection(entry, dos);
+            });
 
-            }
         }
     }
+
 
 
     @Override
@@ -43,11 +40,8 @@ public class DataStreamSerializer implements Serializer {
             String fullName = dis.readUTF();
             Resume resume = new Resume(uuid, fullName);
             readWithException(dis, ()-> resume.addContact(ContactType.valueOf(dis.readUTF()), dis.readUTF()));
+            readWithException(dis, ()-> readSection(resume, dis));
 
-            int size = dis.readInt();
-            for (int i = 0; i < size; i++) {
-                readSection(resume, dis);
-            }
             return resume;
         }
     }
@@ -148,7 +142,7 @@ public class DataStreamSerializer implements Serializer {
         void write(T t) throws IOException;
     }
 
-    private <T> void writeWithException(Collection<T> collection, DataOutputStream dos, collectionWriter<T> writer) throws IOException {
+    private <T> void writeWithException(DataOutputStream dos, Collection<T> collection, collectionWriter<T> writer) throws IOException {
         dos.writeInt(collection.size());
         for (T collections : collection) {
             writer.write(collections);
