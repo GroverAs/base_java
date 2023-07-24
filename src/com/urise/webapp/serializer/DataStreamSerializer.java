@@ -60,18 +60,15 @@ public class DataStreamSerializer implements Serializer {
     }
 
     private void writeContentSection(DataOutputStream dos, ContentSection contentSection) throws IOException {
-        List<String> elements = contentSection.getElements();
-        writeWithException(dos, elements, str -> dos.writeUTF(str));
+        writeWithException(dos, contentSection.getElements(), dos::writeUTF);
     }
 
     private void writeCompanySection(DataOutputStream dos, CompanySection companySection) throws IOException {
-        List<Company> companies = companySection.getCompanies();
-        writeWithException(dos, companies, company -> {
+        writeWithException(dos, companySection.getCompanies(), company -> {
             dos.writeUTF(company.getName());
             dos.writeUTF(company.getWebSite());
 
-            List<Position> positions = company.getPositions();
-            writeWithException(dos, positions, position -> {
+            writeWithException(dos, company.getPositions(), position -> {
                 writeLocalDate(dos, position.getStartDate());
                 writeLocalDate(dos, position.getEndDate());
                 dos.writeUTF(position.getTitle());
@@ -108,31 +105,15 @@ public class DataStreamSerializer implements Serializer {
     }
 
     private void addContentSection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
-        List<String> items = new ArrayList<>();
-        readWithException(dis, ()-> items.add(dis.readUTF()));
-        resume.addSection(sectionType, new ContentSection(items));
+        resume.addSection(sectionType, new ContentSection(readList(dis, dis::readUTF)));
     }
 
     private void addCompanySection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
-        List<Company> companies = new ArrayList<>();
-        readWithException(dis, () -> {
-            String name = dis.readUTF();
-            String webSite = dis.readUTF();
-
-            List<Position> positions = new ArrayList<>();
-            readWithException(dis, () -> {
-                LocalDate startDate = readLocalDate(dis);
-                LocalDate endDate = readLocalDate(dis);
-                String title = dis.readUTF();
-                String description = dis.readUTF();
-
-                positions.add(new Position(startDate, endDate, title, description));
-            });
-            companies.add(new Company(name, webSite, positions));
-        });
-        resume.addSection(sectionType, new CompanySection(companies));
-
+        resume.addSection(sectionType, new CompanySection(readList(dis, () ->
+                new Company(dis.readUTF(), dis.readUTF(), readList(dis, () ->
+                        new Position(readLocalDate(dis), readLocalDate(dis), dis.readUTF(), dis.readUTF()))))));
     }
+
 
     private interface collectionWriter<T> {
         void write(T t) throws IOException;
@@ -145,16 +126,30 @@ public class DataStreamSerializer implements Serializer {
         }
     }
 
-    private interface collectionReader<T> {
-        void read() throws IOException;
-    }
-
     private <T> void readWithException(DataInputStream dis, collectionReader<T> reader) throws IOException {
         int size = dis.readInt();
         for (int i = 0; i < size; i++) {
             reader.read();
         }
     }
+
+    private interface collectionReader<T> {
+        void read() throws IOException;
+    }
+
+    private <T> List<T> readList(DataInputStream dis, ElementReader<T> elementReader) throws IOException {
+        int size = dis.readInt();
+        List<T> list = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            list.add(elementReader.readElement());
+        }
+        return list;
+    }
+
+    private interface ElementReader<T> {
+        T readElement() throws IOException;
+    }
+
 
 }
 
