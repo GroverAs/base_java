@@ -11,16 +11,11 @@ public class StreamTask1 {
 
     public static int minValue(int[] values) {
 
-
-        final int[] result = {0};
-        Arrays.stream(values)
-                .boxed()
+        return Arrays.stream(values)
                 .distinct()
                 .sorted()
-                .mapToInt(Integer::intValue)
-                .forEach(i -> result[0] = i + result[0] * 10);
-        return result[0];
-
+                .reduce((left, right) -> left * 10 + right)
+                .orElseThrow();
     }
 
 }

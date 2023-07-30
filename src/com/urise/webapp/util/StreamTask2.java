@@ -24,7 +24,7 @@ public class StreamTask2 {
                 .reduce(0, Integer::sum);
 
         return integers.stream()
-                .filter((a) -> sum % 2 == 0 && a % 2 != 0 || sum % 2 != 0 && a % 2 == 0)
+                .filter(a -> (sum % 2 != 0) == (a % 2 == 0))
                 .collect(toList());
     }
 }
