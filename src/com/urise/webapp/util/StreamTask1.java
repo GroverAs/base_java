@@ -14,8 +14,7 @@ public class StreamTask1 {
         return Arrays.stream(values)
                 .distinct()
                 .sorted()
-                .reduce((left, right) -> left * 10 + right)
-                .orElseThrow();
+                .reduce(0,(left, right) -> left * 10 + right);
     }
 
 }
