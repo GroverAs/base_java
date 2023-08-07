@@ -60,7 +60,9 @@ public class SqlStorage implements Storage {
     public void delete(String uuid) {
         sqlHelper.executeSql("DELETE FROM resume WHERE uuid = ?", (PreparedStatement ps) -> {
             ps.setString(1, uuid);
-            ps.execute();
+            if (ps.executeUpdate() == 0) {
+                throw new NotExistStorageException(uuid);
+            }
             return null;
         });
     }
@@ -69,12 +71,11 @@ public class SqlStorage implements Storage {
     public List<Resume> getAllSorted() {
         return sqlHelper.executeSql("SELECT * FROM resume r", (PreparedStatement ps) -> {
             ResultSet rs = ps.executeQuery();
-            List<Resume> list = new ArrayList<>();
+            List<Resume> resumeList = new ArrayList<>();
             while (rs.next()) {
-                list.add(new Resume(rs.getNString("uuid")));
-                list.add(new Resume(rs.getNString("full_name")));
+                resumeList.add(new Resume(rs.getString("uuid"), rs.getString("full_name")));
             }
-            return list;
+            return resumeList;
         });
     }
 
@@ -82,10 +83,7 @@ public class SqlStorage implements Storage {
     public int size() {
         return sqlHelper.executeSql("SELECT count(*) FROM resume", (PreparedStatement ps) -> {
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
-            }
-            return 0;
+            return rs.next() ? rs.getInt(1) : 0;
         });
     }
 }

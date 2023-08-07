@@ -2,6 +2,7 @@ package com.urise.webapp.sql;
 
 import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.StorageException;
+import org.postgresql.util.PSQLException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +29,19 @@ public class SqlHelper {
              PreparedStatement ps = conn.prepareStatement(sql)) {
             return executor.execute(ps);
         } catch (SQLException e) {
-            throw new ExistStorageException(null);
+            throw ExceptionPg.alterException(e);
+        }
+    }
+
+    public static class ExceptionPg {
+        private ExceptionPg() {
+        }
+
+        public static StorageException alterException(SQLException e) {
+            if (e.getSQLState().equals("23505")) {
+                return new ExistStorageException(null);
+            }
+            return new StorageException(e);
         }
     }
 }
