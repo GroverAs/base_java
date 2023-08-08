@@ -34,8 +34,6 @@ public class SqlHelper {
     }
 
     public static class ExceptionPg {
-        private ExceptionPg() {
-        }
 
         public static StorageException alterException(SQLException e) {
             if (e.getSQLState().equals("23505")) {
