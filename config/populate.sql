@@ -1,4 +1,4 @@
 insert into resume (uuid, full_name) values
-       ('a152fb6a-8b0d-4298-83ee-658fa9fffbb3', 'name1'),
-       ('e15404ae-5562-48e3-9096-ab702e371bdc', 'name2'),
-       ('6fa7061f-92fc-44bc-9499-97d50fc48b1c', 'name3');
+       ('dd90b240-3720-45b9-8f50-b2ef98ec1b35', 'name1'),
+       ('097ef853-4615-491b-8c3b-38efccc33353', 'name2'),
+       ('f0532360-d6ee-4592-ba1c-ee36fe80bcd5', 'name3');

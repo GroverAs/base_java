@@ -29,13 +29,29 @@ public class SqlHelper {
              PreparedStatement ps = conn.prepareStatement(sql)) {
             return executor.execute(ps);
         } catch (SQLException e) {
-            throw ExceptionPg.alterException(e);
+            throw ExceptionPg.convertException(e);
+        }
+    }
+
+    public <T> T transactionalExecute(SqlTransaction<T> executor) {
+        try (Connection conn = connectionFactory.getConnection()) {
+            try {
+                conn.setAutoCommit(false);
+                T res = executor.execute(conn);
+                conn.commit();
+                return res;
+            } catch (SQLException e) {
+                conn.rollback();
+                throw ExceptionPg.convertException(e);
+            }
+        } catch (SQLException e) {
+            throw new StorageException(e);
         }
     }
 
     public static class ExceptionPg {
 
-        public static StorageException alterException(SQLException e) {
+        public static StorageException convertException(SQLException e) {
             if (e.getSQLState().equals("23505")) {
                 return new ExistStorageException(null);
             }

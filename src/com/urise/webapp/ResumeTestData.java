@@ -12,12 +12,13 @@ public class ResumeTestData {
     public static Resume createResume(String uuid, String fullName) {
         Resume resume = new Resume(uuid, fullName);
 
-//        resume.addContact(ContactType.PHONE_NUMBER, "111-22-33");
-//        resume.addContact(ContactType.EMAIL, "rookie@ya.ru");
-//        resume.addContact(ContactType.SKYPE, "xyz");
-//        resume.addContact(ContactType.GITHUB, "GitHub");
-//        resume.addContact(ContactType.LINKEDIN, "https://www.linkedin.com/in/qwerty");
-//        resume.addContact(ContactType.STACKOVERFLOW,"StackOverflow");
+        resume.addContact(ContactType.PHONE_NUMBER, "111-22-33");
+        resume.addContact(ContactType.EMAIL, "rookie@ya.ru");
+        resume.addContact(ContactType.SKYPE, "xyz");
+        resume.addContact(ContactType.GITHUB, "GitHub");
+        resume.addContact(ContactType.LINKEDIN, "https://www.linkedin.com/in/qwerty");
+        resume.addContact(ContactType.STACKOVERFLOW,"StackOverflow");
+
 //        resume.addSection(SectionType.PERSONAL, new TextSection("Personal information"));
 //        resume.addSection(SectionType.OBJECTIVE, new TextSection("Java developer"));
 //        resume.addSection(SectionType.ACHIEVEMENT, new ContentSection("Successful experience in Java",
