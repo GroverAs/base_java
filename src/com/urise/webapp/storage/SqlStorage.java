@@ -12,6 +12,11 @@ public class SqlStorage implements Storage {
     public final SqlHelper sqlHelper;
 
     public SqlStorage(String dbUrl, String dbUser, String dbPassword) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException(e);
+        }
         sqlHelper = new SqlHelper(() -> DriverManager.getConnection(dbUrl, dbUser, dbPassword));
     }
 
@@ -107,7 +112,6 @@ public class SqlStorage implements Storage {
     @Override
     public List<Resume> getAllSorted() {
         return sqlHelper.transactionalExecute(conn -> {
-            ArrayList<Resume> list;
             Map<String, Resume> resumes = new LinkedHashMap<>();
 
             try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM resume ORDER BY full_name, uuid")) {
@@ -155,16 +159,6 @@ public class SqlStorage implements Storage {
             SectionType type = SectionType.valueOf(rs.getString("type"));
             r.addSection(type, JsonParser.read(content, Section.class));
         }
-//        String content = rs.getString("content");
-//        SectionType type = SectionType.valueOf(rs.getString("type"));
-//        Section section = switch (type) {
-//            case PERSONAL, OBJECTIVE -> new TextSection(content);
-//            case ACHIEVEMENT, QUALIFICATIONS -> new ContentSection(Arrays.asList(content.split("\n")));
-//            case EXPERIENCE, EDUCATION -> (JsonParser.read(content, Section.class));
-//        };
-//        if (content != null) {
-//            r.addSection(type, section);
-//        }
     }
 
     private void saveContacts(Connection conn, Resume r) throws SQLException {
@@ -190,26 +184,6 @@ public class SqlStorage implements Storage {
             }
             ps.executeBatch();
         }
-//        try (PreparedStatement ps = conn.prepareStatement("INSERT INTO section(resume_uuid, type, content) VALUES (?, ?, ?)")) {
-//            for (Map.Entry<SectionType, Section> e : r.getSections().entrySet()) {
-//                ps.setString(1, r.getUuid());
-//                ps.setString(2, e.getKey().name());
-//                switch (e.getKey()) {
-//                    case PERSONAL, OBJECTIVE -> ps.setString(3, e.getValue().toString());
-//                    case ACHIEVEMENT, QUALIFICATIONS -> {
-//                        StringJoiner joiner = new StringJoiner("\n");
-//                        for (String s : ((ContentSection) e.getValue()).getElements()) {
-//                            String toString = s.toString();
-//                            joiner.add(toString);
-//                        }
-//                        ps.setString(3, joiner.toString());
-//                    }
-//                    case EXPERIENCE, EDUCATION -> ps.setString(3, JsonParser.write(e.getValue(), Section.class));
-//                }
-//                ps.addBatch();
-//            }
-//            ps.executeBatch();
-//        }
     }
 }
 

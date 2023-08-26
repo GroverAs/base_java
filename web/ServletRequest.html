@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            background-color: #96D4D4;
+        }
+    </style>
+</head>
+<body>
+<h2 style="color: darkorange" >Resume list</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td><a href=\"resume?uuid=" + resume.getuuid() + "\">" + resume.getFullName() + "</a></td>
+        <td>" + resume.getContact(ContactType.MAIL) + "</td> +
+
+    </tr>
+
+</table>
+</body>
+</html>
