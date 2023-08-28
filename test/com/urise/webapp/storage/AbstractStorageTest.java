@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public abstract class AbstractStorageTest {
     protected static final File STORAGE_DIR = Config.getInstance().getStorageDir();
 
-    protected Storage storage;
+    public Storage storage;
 
     private static final String UUID_1 = UUID.randomUUID().toString();
     private static final String UUID_2 = UUID.randomUUID().toString();
@@ -39,6 +39,8 @@ public abstract class AbstractStorageTest {
 
         RESUME_1.addContact(ContactType.PHONE_NUMBER, "+7 910 123 45 67");
         RESUME_1.addContact(ContactType.SKYPE, "GRover123");
+        RESUME_2.addContact(ContactType.EMAIL, "M@skva@yandex.ru");
+        RESUME_2.addContact(ContactType.SKYPE, "Ferrari599");
         RESUME_3.addContact(ContactType.PHONE_NUMBER, "+7 999 111 22 33");
         RESUME_3.addContact(ContactType.EMAIL, "4444@yandex.ru");
     }

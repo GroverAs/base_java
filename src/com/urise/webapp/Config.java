@@ -6,10 +6,8 @@ import java.io.*;
 import java.util.Properties;
 
 public class Config {
-    public static final Config INSTANCE = new Config();
-    private static final File PROPS = new File("config\\resumes.properties");
-
-    //            -DhomeDirectory="D:/JAVA/BaseJava/base_java"
+    private static final File PROPS = new File(System.getProperty("homeDirectory"), "config\\resumes.properties");
+    private static final Config INSTANCE = new Config();
     private final Storage storage;
     private final File storageDir;
     public static Config getInstance() {
@@ -17,7 +15,7 @@ public class Config {
     }
 
     private Config() {
-        try (InputStream is = new FileInputStream("config\\resumes.properties")) {
+        try (InputStream is = new FileInputStream(PROPS)) {
             Properties props = new Properties();
             props.load(is);
             storageDir = new File(props.getProperty("storage.dir"));
@@ -27,15 +25,6 @@ public class Config {
             throw new IllegalStateException("Invalid config file " + PROPS.getAbsolutePath());
         }
     }
-
-//    private static File getHomeDirectory() {
-//        String prop = System.getProperty("homeDirectory");
-//        File homeDirectory = new File(prop == null ? "." : prop);
-//        if (!homeDirectory.isDirectory()) {
-//            throw new IllegalStateException(homeDirectory + " is not directory");
-//        }
-//        return homeDirectory;
-//    }
 
     public File getStorageDir() {
         return storageDir;
