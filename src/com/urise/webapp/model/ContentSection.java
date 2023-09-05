@@ -19,7 +19,7 @@ public class ContentSection extends Section{
     }
 
     public ContentSection(List<String> elements) {
-        Objects.requireNonNull(elements, "items must not be null");
+        Objects.requireNonNull(elements, "elements must not be null");
         this.elements = elements;
     }
 

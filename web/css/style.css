@@ -3,6 +3,7 @@ header {
     color: #2E6E9E;
     font-size: 20px;
     padding: 5px 20px;
+    text-align: center;
 }
 
 footer {
@@ -11,4 +12,73 @@ footer {
     font-size: 20px;
     padding: 5px 20px;
     margin: 20px 0;
+    text-align: center;
+}
+.footer {
+    height: 70px;
+    width: 100%;
+
+    position:absolute;
+    bottom:0;
+
+    font-family: Open Sans, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 15px;
+
+    display: table;
+
+    color: #696969;
+    background: #FFF5EE;
+}
+.footer a {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.footer-text {
+    color: #696969;
+    text-decoration: none;
+}
+
+.footer div {
+    width: 100%;
+    text-align: center;
+}
+
+.scrollable-panel {
+    height: calc(100vh - 200px);
+    width: 100%;
+    margin: 0;
+    overflow: auto;
+}
+
+dl {
+    background: none repeat scroll 0 0 #FAFAFA;
+    margin: 8px 0;
+    padding: 0;
+}
+
+dt {
+    display: inline-block;
+    width: 170px;
+}
+
+dd {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: top;
+}
+
+h2, h3 {
+    margin: 10px 5px;
+}
+
+li {
+    margin: 5px 0;
+}
+
+ul {
+    margin: 8px 5px;
 }

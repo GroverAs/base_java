@@ -24,6 +24,7 @@ public class ResumeTestData {
         resume.addSection(SectionType.ACHIEVEMENT, new ContentSection("Successful experience in Java",
                 "Разработка Web приложений", "Организация онлайн стажировок и ведение проектов"));
         resume.addSection(SectionType.QUALIFICATIONS, new ContentSection("Java", "JavaScript", "Tomcat"));
+
         resume.addSection(SectionType.EXPERIENCE,
                 new CompanySection(
                         new Company("Реальные кабаны", "TopTor.ru",
