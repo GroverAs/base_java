@@ -1,5 +1,7 @@
 <%@ page import="com.urise.webapp.model.TextSection" %>
 <%@ page import="com.urise.webapp.model.ContentSection" %>
+<%@ page import="com.urise.webapp.model.CompanySection" %>
+<%@ page import="com.urise.webapp.util.HtmlUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -27,7 +29,7 @@
         </c:forEach>
     <p>
     <hr>
-    <table style="width:25%">
+    <table style="width:60%">
         <c:forEach var="sectionEntry" items="${resume.sections}">
             <jsp:useBean id="sectionEntry"
                          type="java.util.Map.Entry<com.urise.webapp.model.SectionType, com.urise.webapp.model.Section>"/>

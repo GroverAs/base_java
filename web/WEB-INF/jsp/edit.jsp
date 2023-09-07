@@ -14,7 +14,7 @@
         }
 
         th, td {
-            background-color: #96D4D4;
+            background-color: #F0FFFF;
         }
     </style>
 </head>
@@ -25,14 +25,14 @@
         <input type="hidden" name="uuid" value="${resume.uuid}">
         <dl>
             <dt>Имя:</dt>
-            <dd><input type="text" name="fullName" size=30 value="${resume.fullName}"></dd>
+            <dd><input type="text" name="fullName" size=29 value="${resume.fullName}"></dd>
         </dl>
         <h3>Контакты:</h3>
         <p>
             <c:forEach var="type" items="<%=ContactType.values()%>">
         <dl>
             <dt>${type.title}</dt>
-            <dd><input type="text" name="${type.name()}" size=30 value="${resume.getContacts(type)}"></dd>
+            <dd><input type="text" name="${type.name()}" size=29 value="${resume.getContacts(type)}"></dd>
         </dl>
         </c:forEach>
         </p>
@@ -57,7 +57,7 @@
         </c:forEach>
         <hr>
         <button type="submit">Сохранить</button>
-        <button onclick="window.history.back()">Отменить</button>
+        <button type="reset">Отменить</button>
     </form>
 </section>
 <jsp:include page="fragments/footer.jsp"/>

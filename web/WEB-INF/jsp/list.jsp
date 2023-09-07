@@ -14,7 +14,7 @@
         }
 
         th, td {
-            background-color: #96D4D4;
+            background-color: #F0FFFF;
         }
     </style>
 </head>
@@ -22,12 +22,12 @@
 <jsp:include page="fragments/header.jsp"/>
 <section>
     <p><a href="resume?action=add"><img src="img/add.png" width="19" height="20"></a></p>
-    <table style="width:15%">
+    <table style="width:20%">
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th></th>
-            <th></th>
+            <th>Имя</th>
+            <th>Контакты</th>
+            <th>Удалить</th>
+            <th>Редактировать</th>
         </tr>
         <c:forEach items="${resumes}" var="resume">
         <jsp:useBean id="resume" type="com.urise.webapp.model.Resume"/>

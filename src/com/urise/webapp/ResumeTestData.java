@@ -46,7 +46,6 @@ public class ResumeTestData {
                                         new Position(LocalDate.of(2001, Month.SEPTEMBER, 1),
                                                 LocalDate.of(2003, Month.JUNE, 1),
                                                 "aspirant", null)))));
-
         return resume;
     }
 }
