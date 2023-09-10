@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,18 +14,25 @@ public class Company implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    public static final Company EMPTY = new Company("","", Position.EMPTY);
+
     private String name;
 
     private String webSite;
 
-    private List<Position> positions;
+    private List<Position> positions = new ArrayList<>();
 
     public Company() {
     }
 
-    public Company(String name, String webSite, List<Position> positions) {
+    public Company(String name, String webSite, Position... positions) {
         this.name = name;
         this.webSite = webSite == null ? "" : webSite;
+        this.positions = Arrays.asList(positions);
+    }
+
+    public Company(String name, List<Position> positions){
+        this.name = name;
         this.positions = positions;
     }
 

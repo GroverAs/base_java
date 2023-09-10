@@ -20,7 +20,8 @@
 <body>
 <jsp:include page="fragments/header.jsp"/>
 <section>
-    <h2>${resume.fullName}&nbsp;<a href="resume?uuid=${resume.uuid}&action=edit"><img src="img/pen.png" width="20" height="20"></a></h2>
+    <h2>${resume.fullName}&nbsp;<a href="resume?uuid=${resume.uuid}&action=edit"><img src="img/pen.png" width="20"
+                                                                                      height="20"></a></h2>
     <p>
         <c:forEach var="contactEntry" items="${resume.contacts}">
             <jsp:useBean id="contactEntry"
@@ -29,7 +30,7 @@
         </c:forEach>
     <p>
     <hr>
-    <table style="width:60%">
+    <table style="width:45%">
         <c:forEach var="sectionEntry" items="${resume.sections}">
             <jsp:useBean id="sectionEntry"
                          type="java.util.Map.Entry<com.urise.webapp.model.SectionType, com.urise.webapp.model.Section>"/>
@@ -37,7 +38,9 @@
             <c:set var="section" value="${sectionEntry.value}"/>
             <jsp:useBean id="section" type="com.urise.webapp.model.Section"/>
             <tr>
-            <td><h2><a id="type.name">${type.title}</a></h2></td>
+            <td>
+                <h2><a id="type.name">${type.title}</a></h2>
+            </td>
             <c:if test="${type=='OBJECTIVE'}">
                 <tr>
                     <td>
@@ -45,13 +48,12 @@
                     </td>
                 </tr>
             </c:if>
-            </tr>
             <c:if test="${type!='OBJECTIVE'}">
                 <c:choose>
                     <c:when test="${type=='PERSONAL'}">
                         <tr>
                             <td>
-                                <%=((TextSection)section).getContent()%>
+                                <%=((TextSection) section).getContent()%>
                             </td>
                         </tr>
                     </c:when>
@@ -67,6 +69,28 @@
                         </tr>
                     </c:when>
                     <c:when test="${type=='EXPERIENCE' || type=='EDUCATION'}">
+                        <c:forEach var="org" items="<%=((CompanySection) section).getCompanies()%>">
+                            <tr>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${empty org.webSite}">
+                                            <h3>${org.name}</h3>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <h3><a href="${org.webSite}">${org.name}</a></h3>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
+                            </tr>
+                            <c:forEach var="position" items="${org.positions}">
+                                <jsp:useBean id="position" type="com.urise.webapp.model.Position"/>
+                                <tr>
+                                    <td><%=HtmlUtil.formatDates(position)%>
+                                    </td>
+                                    <td><b>${position.title}</b><br>${position.description}</td>
+                                </tr>
+                            </c:forEach>
+                        </c:forEach>
                     </c:when>
                 </c:choose>
             </c:if>

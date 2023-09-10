@@ -9,6 +9,8 @@ public class ContentSection extends Section{
     @Serial
     private static final long serialVersionUID = 1L;
 
+    public static final ContentSection EMPTY = new ContentSection("");
+
     private List<String> elements;
 
     public ContentSection() {

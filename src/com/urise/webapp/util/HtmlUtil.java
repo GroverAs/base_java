@@ -7,4 +7,7 @@ public class HtmlUtil {
         return str == null || str.trim().length() == 0;
     }
 
+    public static String formatDates(Position position) {
+        return DateUtil.format(position.getStartDate()) + " - " + DateUtil.format(position.getEndDate());
+    }
 }

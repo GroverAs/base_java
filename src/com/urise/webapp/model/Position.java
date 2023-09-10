@@ -7,10 +7,16 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Objects;
+
+import static com.urise.webapp.util.DateUtil.NOW;
+import static com.urise.webapp.util.DateUtil.of;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Position implements Serializable {
+
+    public static final Position EMPTY = new Position();
 
     private String title;
 
@@ -22,6 +28,10 @@ public class Position implements Serializable {
     private LocalDate endDate;
 
     public Position() {
+    }
+
+    public Position(int startYear, Month startMonth, String title, String description) {
+        this(of(startYear, startMonth), NOW, title, description);
     }
 
     public Position(LocalDate startDate, LocalDate endDate, String title, String description) {

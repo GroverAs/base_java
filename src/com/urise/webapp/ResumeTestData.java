@@ -4,7 +4,6 @@ import com.urise.webapp.model.*;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 
 
 
@@ -27,25 +26,33 @@ public class ResumeTestData {
 
         resume.addSection(SectionType.EXPERIENCE,
                 new CompanySection(
-                        new Company("Реальные кабаны", "TopTor.ru",
-                                List.of(new Position(
-                                                LocalDate.of(2004, Month.FEBRUARY, 1),
-                                                LocalDate.of(2005, Month.DECEMBER, 1),
-                                                "Junior developer", "just start working"),
-                                        new Position(
-                                                LocalDate.of(2005, Month.APRIL, 1),
-                                                LocalDate.of(2007, Month.JULY, 1),
-                                                "Middle developer", "all is good")))));
+                        new Company("Высокие технологии", "http://Высокие технологии.ru",
+                                new Position(
+                                        LocalDate.of(2004, Month.FEBRUARY, 1),
+                                        LocalDate.of(2005, Month.DECEMBER, 1),
+                                        "Junior developer", "just start working"),
+                                new Position(
+                                        LocalDate.of(2005, Month.APRIL, 1),
+                                        LocalDate.of(2007, Month.JULY, 1),
+                                        "Middle developer", "all is good"))));
+        resume.addSection(SectionType.EXPERIENCE,
+                new CompanySection(
+                        new Company("Прорыв", "http://Прорыв.ru",
+                                new Position(
+                                        LocalDate.of(2017, Month.OCTOBER, 1),
+                                        LocalDate.now(),
+                                        "Senior developer", "Fantastic - bombastic"))));
         resume.addSection(SectionType.EDUCATION,
                 new CompanySection(
                         new Company("University", null,
-                                List.of(new Position(
-                                                LocalDate.of(1996, Month.FEBRUARY, 1),
-                                                LocalDate.of(2000, Month.DECEMBER, 1),
-                                                "student", "IT faculty"),
-                                        new Position(LocalDate.of(2001, Month.SEPTEMBER, 1),
-                                                LocalDate.of(2003, Month.JUNE, 1),
-                                                "aspirant", null)))));
+                                new Position(
+                                        LocalDate.of(1996, Month.FEBRUARY, 1),
+                                        LocalDate.of(2000, Month.DECEMBER, 1),
+                                        "student", "IT faculty"),
+                                new Position(
+                                        LocalDate.of(2001, Month.SEPTEMBER, 1),
+                                        LocalDate.of(2003, Month.JUNE, 1),
+                                        "aspirant", null))));
         return resume;
     }
 }

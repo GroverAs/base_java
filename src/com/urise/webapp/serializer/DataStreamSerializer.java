@@ -110,7 +110,7 @@ public class DataStreamSerializer implements Serializer {
 
     private void addCompanySection(Resume resume, DataInputStream dis, SectionType sectionType) throws IOException {
         resume.addSection(sectionType, new CompanySection(readList(dis, () ->
-                new Company(dis.readUTF(), dis.readUTF(), readList(dis, () ->
+                new Company(dis.readUTF(), dis.readUTF(), (Position) readList(dis, () ->
                         new Position(readLocalDate(dis), readLocalDate(dis), dis.readUTF(), dis.readUTF()))))));
     }
 
