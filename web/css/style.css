@@ -1,16 +1,10 @@
 body{
     margin: 0;
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
 
     /*min-height: 100%;*/
     /*grid-template-rows: 1fr auto;*/
-}
-
-section{
-    padding: 15px;
-    width: 50%;
-    margin: 0 0 0 33%;
 }
 
 .header {
@@ -20,18 +14,18 @@ section{
     text-align: center;
     font-size: 18px;
     color: #2E6E9E;
-    background: none repeat scroll 0 0 #A6C9E2;
+    background: #A6C9E2;
 }
 
 .footer {
     height: 70px;
     width: 100%;
     font-size: 18px;
-
     display: table;
-
     color: #2E6E9E;
     background: none repeat scroll 0 0 #A6C9E2;
+    position: absolute;
+    bottom: 0;
 }
 .footer div {
     width: 100%;
@@ -41,12 +35,17 @@ section{
 .footer a {
     display:table-cell;
     vertical-align:middle;
-
 }
 
 .header a {
     display:table-cell;
     vertical-align:middle;
+}
+.scrollable-panel {
+    height: calc(100vh - 140px);
+    width: 100%;
+    margin: 0;
+    overflow: auto;
 }
 
 dl {

@@ -37,10 +37,11 @@ public abstract class AbstractStorageTest {
         RESUME_3 = ResumeTestData.createResume(UUID_3,"Name_3");
         RESUME_4 = ResumeTestData.createResume(UUID_4,"Name_4");
 
-        RESUME_2.addContact(ContactType.EMAIL, "M@skva@yandex.ru");
-        RESUME_2.addContact(ContactType.SKYPE, "Ferrari599");
-        RESUME_3.addContact(ContactType.PHONE_NUMBER, "+7 999 111 22 33");
-        RESUME_3.addContact(ContactType.EMAIL, "4444@yandex.ru");
+        RESUME_1.addContact(ContactType.EMAIL, "yyyy@yandex.ru");
+        RESUME_1.addContact(ContactType.PHONE_NUMBER, "+7 999 888 77 66");
+
+        RESUME_3.addContact(ContactType.SKYPE, "M@skvich");
+        RESUME_3.addContact(ContactType.PHONE_NUMBER, "+7 111 111 11");
     }
 
     protected AbstractStorageTest(Storage storage){
@@ -97,8 +98,8 @@ public abstract class AbstractStorageTest {
     @Test
     public void update() throws Exception {
         Resume newResume = new Resume(UUID_1, "new Name");
-        RESUME_1.addContact(ContactType.SKYPE, "ZoRRoo");
-        RESUME_1.addContact(ContactType.PHONE_NUMBER, "+998 123 999 22");
+        newResume.addContact(ContactType.SKYPE, "ZoRRoo");
+        newResume.addContact(ContactType.PHONE_NUMBER, "+998 123 999 22");
         storage.update(newResume);
         assertEquals(newResume, storage.get(UUID_1));
     }

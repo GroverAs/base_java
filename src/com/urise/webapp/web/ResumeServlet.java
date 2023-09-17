@@ -65,7 +65,7 @@ public class ResumeServlet extends HttpServlet {
                             break;
                         case EXPERIENCE:
                         case EDUCATION:
-                            CompanySection companySection = (CompanySection) r.getSection(type);
+                            CompanySection companySection = (CompanySection) section;
                             List<Company> emptyFirstCompany = new ArrayList<>();
                             emptyFirstCompany.add(Company.EMPTY);
                             if (companySection != null) {
@@ -73,7 +73,7 @@ public class ResumeServlet extends HttpServlet {
                                     List<Position> emptyFirstPositions = new ArrayList<>();
                                     emptyFirstPositions.add(Position.EMPTY);
                                     emptyFirstPositions.addAll(company.getPositions());
-                                    emptyFirstCompany.add(new Company(company.getWebSite(), emptyFirstPositions));
+                                    emptyFirstCompany.add(new Company(company.getName(), emptyFirstPositions));
                                 }
                             }
                             section = new CompanySection(emptyFirstCompany);
@@ -97,9 +97,9 @@ public class ResumeServlet extends HttpServlet {
         String uuid = request.getParameter("uuid");
         String fullName = request.getParameter("fullName");
 
-        final boolean isCreate = (uuid == null || uuid.length() == 0);
+        final boolean newResume = (uuid == null || uuid.trim().length() == 0);
         Resume r;
-        if (isCreate) {
+        if (newResume) {
             r = new Resume(fullName);
         } else {
             r = storage.get(uuid);
@@ -145,7 +145,6 @@ public class ResumeServlet extends HttpServlet {
                                 for (int j = 0; j < titles.length; j++) {
                                     if (!HtmlUtil.isEmpty(titles[j])) {
                                         positions.add(new Position(DateUtil.parse(startDates[j]), DateUtil.parse(endDates[j]), titles[j], descriptions[j]));
-                                        break;
                                     }
                                 }
                                 companies.add(new Company(name, positions));
@@ -156,7 +155,7 @@ public class ResumeServlet extends HttpServlet {
                 }
             }
         }
-        if (isCreate) {
+        if (newResume) {
             storage.save(r);
         } else {
             storage.update(r);
@@ -164,5 +163,6 @@ public class ResumeServlet extends HttpServlet {
         response.sendRedirect("resume");
     }
 }
+
 
 

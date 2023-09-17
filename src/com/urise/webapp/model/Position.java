@@ -8,13 +8,14 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 import java.util.Objects;
 
 import static com.urise.webapp.util.DateUtil.NOW;
 import static com.urise.webapp.util.DateUtil.of;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Position implements Serializable {
+public class Position extends Company implements Serializable {
 
     public static final Position EMPTY = new Position();
 
