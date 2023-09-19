@@ -42,7 +42,7 @@ public class ResumeTestData {
                                         "Senior developer", "Fantastic - bombastic"))));
         resume.addSection(SectionType.EDUCATION,
                 new CompanySection(
-                        new Company("University", "html://mgsu.ru",
+                        new Company("University", null,
                                 new Position(
                                         LocalDate.of(1996, Month.FEBRUARY, 1),
                                         LocalDate.of(2000, Month.DECEMBER, 1),

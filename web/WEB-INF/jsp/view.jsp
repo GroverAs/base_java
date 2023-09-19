@@ -58,7 +58,7 @@
                         <c:forEach var="org" items="<%=((CompanySection) section).getCompanies()%>">
                                     <c:choose>
                                         <c:when test="${empty org.webSite}">
-                                            <div class="web-site">${org.name}</div>
+                                            <div class="company-name">${org.name}</div>
                                         </c:when>
                                         <c:otherwise>
                                             <a class="company-name" href="${org.webSite}">${org.name}</a>
@@ -67,12 +67,9 @@
                             <div class="period-position">
                                 <c:forEach var="position" items="${org.positions}">
                                     <jsp:useBean id="position" type="com.urise.webapp.model.Position"/>
-                                    <div class="period"><%=HtmlUtil.formatDates(position)%>
-                                    </div>
-                                    <div class="position">${position.title}
-                                    </div>
-                                    <div class="position-description">${position.description}
-                                    </div>
+                                    <div class="period"><%=HtmlUtil.formatDates(position)%></div>
+                                    <div class="position">${position.title}</div>
+                                    <div class="position-description">${position.description}</div>
                                 </c:forEach>
                             </div>
                         </c:forEach>
@@ -82,8 +79,9 @@
         </c:forEach>
         </div>
         <br>
-       <button onclick="window.history.back()">OK</button></div>
+        <div class="button-section"><button onclick="window.history.back()">OK</button></div>
     </div>
+</div>
 <br>
 <jsp:include page="fragments/footer.jsp"/>
 </body>

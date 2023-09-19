@@ -27,7 +27,7 @@
         <div class="edit-wrapper">
             <dl>
                 <dt>Имя:</dt>
-                <dd><input type="text" name="fullName" size=29 value="${resume.fullName}"></dd>
+                <dd><input type="text" name="fullName" size=29 value="${resume.fullName}" required pattern="^$|^\S+.*"></dd>
             </dl>
             <h3>Контакты:</h3>
             <p>
@@ -55,19 +55,19 @@
                               rows=5><%=String.join("\n", ((ContentSection) section).getElements())%></textarea>
                     </c:when>
                     <c:when test="${type=='EXPERIENCE' || type=='EDUCATION'}">
-                        <c:forEach var="org" items="<%=((CompanySection) section).getCompanies()%>"
+                        <c:forEach var="company" items="<%=((CompanySection) section).getCompanies()%>"
                                    varStatus="counter">
                             <dl>
                                 <dt>Название учереждения:</dt>
-                                <dd><input type="text" name='${type}' size="60" value="${org.name}"></dd>
+                                <dd><input type="text" name='${type}' size="60" value="${company.name}"></dd>
                             </dl>
                             <dl>
                                 <dt>Сайт учереждения:</dt>
-                                <dd><input type="text" name='${type}web' size="60" value="${org.webSite}"></dd>
+                                <dd><input type="text" name='${type}' size="60" value="${company.webSite}"></dd>
                             </dl>
                             <br>
                             <div style="margin-left: 30px">
-                                <c:forEach var="pos" items="${org.positions}">
+                                <c:forEach var="pos" items="${company.positions}">
                                     <jsp:useBean id="pos" type="com.urise.webapp.model.Position"/>
                                     <dl>
                                         <dt>Начальная дата:</dt>
@@ -100,8 +100,10 @@
                 </c:choose>
             </c:forEach>
             <hr>
-            <button type="submit">Сохранить</button>
-            <button type="reset">Отменить</button>
+            <div class="button-section2">
+                <button type="submit">Сохранить</button>
+                <button type="reset">Отменить</button>
+            </div>
         </div>
     </div>
 </form>

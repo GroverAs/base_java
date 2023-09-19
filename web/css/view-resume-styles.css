@@ -53,7 +53,7 @@
 }
 
 .section-wrapper {
-    margin-bottom: 83px;
+    margin-bottom: 50px;
 }
 
 .company-name {
@@ -93,5 +93,11 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 25px;
-    margin: 35px 0 0 207px;
+    margin: 35px 0 0 70px;
+    width: 100%;
+}
+
+.button-section {
+    margin: 40px 0 15px 0;
+    display: inline-flex;
 }
