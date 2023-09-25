@@ -16,38 +16,27 @@ public class Company implements Serializable {
 
     public static final Company EMPTY = new Company("","", Position.EMPTY);
 
+    private Link homePage;
     private String name;
 
-    private String webSite;
+//    private String webSite;
 
     private List<Position> positions = new ArrayList<>();
 
     public Company() {
     }
 
-    public Company(String name, String webSite, Position... positions) {
-        this.name = name;
-        this.webSite = webSite == null ? "" : webSite;
-        this.positions = Arrays.asList(positions);
+    public Company(String name, String url, Position... positions) {
+        this(new Link(name, url), Arrays.asList(positions));
     }
 
-    public Company(String name, List<Position> positions){
-        this.name = name;
+    public Company(Link homePage, List<Position> positions) {
+        this.homePage = homePage;
         this.positions = positions;
     }
 
-    public Company(String name, String webSite, List<Position> positions) {
-        this.name=name;
-        this.webSite = webSite == null ? "" : webSite;
-        this.positions = positions;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getWebSite() {
-        return webSite;
+    public Link getHomePage() {
+        return homePage;
     }
 
     public List<Position> getPositions() {
@@ -58,28 +47,48 @@ public class Company implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        Company company = (Company) o;
-
-        if (!name.equals(company.name)) return false;
-        if (!Objects.equals(webSite, company.webSite)) return false;
-        return positions.equals(company.positions);
+        Company that = (Company) o;
+        return Objects.equals(homePage, that.homePage) &&
+                Objects.equals(positions, that.positions);
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (webSite != null ? webSite.hashCode() : 0);
-        result = 31 * result + positions.hashCode();
-        return result;
+        return Objects.hash(homePage, positions);
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "name='" + name + '\'' +
-                ", webSite='" + webSite + '\'' +
+                "homePage=" + homePage +
                 ", positions=" + positions +
                 '}';
     }
+
+    //    public Company(String name, String webSite, Position... positions) {
+//        this.name = name;
+//        this.webSite = webSite == null ? "" : webSite;
+//        this.positions = Arrays.asList(positions);
+//    }
+//
+//    public Company(String name, List<Position> positions){
+//        this.name = name;
+//        this.positions = positions;
+//    }
+//
+//    public Company(String name, String webSite, List<Position> positions) {
+//        this.name=name;
+//        this.webSite = webSite == null ? "" : webSite;
+//        this.positions = positions;
+//    }
+
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public String getWebSite() {
+//        return webSite;
+//    }
+
+
 }

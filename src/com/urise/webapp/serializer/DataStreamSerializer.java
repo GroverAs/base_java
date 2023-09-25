@@ -65,8 +65,8 @@ public class DataStreamSerializer implements Serializer {
 
     private void writeCompanySection(DataOutputStream dos, CompanySection companySection) throws IOException {
         writeWithException(dos, companySection.getCompanies(), company -> {
-            dos.writeUTF(company.getName());
-            dos.writeUTF(company.getWebSite());
+            dos.writeUTF(company.getHomePage().getName());
+            dos.writeUTF(company.getHomePage().getUrl());
 
             writeWithException(dos, company.getPositions(), position -> {
                 writeLocalDate(dos, position.getStartDate());

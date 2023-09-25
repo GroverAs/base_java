@@ -59,11 +59,11 @@
                                    varStatus="counter">
                             <dl>
                                 <dt>Название учреждения:</dt>
-                                <dd><input type="text" name='${type}' size="60" value="${company.name}"></dd>
+                                <dd><input type="text" name='${type}' size="60" value="${company.homePage.name}"></dd>
                             </dl>
                             <dl>
                                 <dt>Сайт учреждения:</dt>
-                                <dd><input type="text" name='${type}webSite' size="60" value="${company.webSite}"></dd>
+                                <dd><input type="text" name='${type}url' size="60" value="${company.homePage.url}"></dd>
                             </dl>
                             <br>
                             <div style="margin-left: 30px">

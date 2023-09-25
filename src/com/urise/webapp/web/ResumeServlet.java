@@ -73,7 +73,7 @@ public class ResumeServlet extends HttpServlet {
                                     List<Position> emptyFirstPositions = new ArrayList<>();
                                     emptyFirstPositions.add(Position.EMPTY);
                                     emptyFirstPositions.addAll(company.getPositions());
-                                    emptyFirstCompany.add(new Company(company.getName(), emptyFirstPositions));
+                                    emptyFirstCompany.add(new Company(company.getHomePage(), emptyFirstPositions));
                                 }
                             }
                             section = new CompanySection(emptyFirstCompany);
@@ -132,7 +132,7 @@ public class ResumeServlet extends HttpServlet {
                     case EDUCATION:
                     case EXPERIENCE:
                         List<Company> companies = new ArrayList<>();
-                        String[] webs = request.getParameterValues(type.name() + "webSite");
+                        String[] urls = request.getParameterValues(type.name() + "url");
                         for (int i = 0; i < values.length; i++) {
                             String name = values[i];
                             if (!HtmlUtil.isEmpty(name)) {
@@ -147,7 +147,7 @@ public class ResumeServlet extends HttpServlet {
                                         positions.add(new Position(DateUtil.parse(startDates[j]), DateUtil.parse(endDates[j]), titles[j], descriptions[j]));
                                     }
                                 }
-                                companies.add(new Company(name, webs[i], positions));
+                                companies.add(new Company(new Link(name, urls[i]), positions));
                             }
                         }
                         r.addSection(type, new CompanySection(companies));

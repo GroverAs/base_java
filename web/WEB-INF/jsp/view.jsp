@@ -57,11 +57,11 @@
         <div class="section-wrapper">
                         <c:forEach var="company" items="<%=((CompanySection) section).getCompanies()%>">
                                     <c:choose>
-                                        <c:when test="${empty company.webSite}">
-                                            <div class="company-name">${company.name}</div>
+                                        <c:when test="${empty company.homePage.url}">
+                                            <div class="company-name">${company.homePage.name}</div>
                                         </c:when>
                                         <c:otherwise>
-                                            <a class="company-name" href="${company.webSite}">${company.name}</a>
+                                            <a class="company-name" href="${company.homePage.url}">${company.homePage.name}</a>
                                         </c:otherwise>
                                     </c:choose>
                             <div class="period-position">
