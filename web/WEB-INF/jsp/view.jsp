@@ -55,17 +55,17 @@
                     </c:when>
                     <c:when test="${type=='EXPERIENCE' || type=='EDUCATION'}">
         <div class="section-wrapper">
-                        <c:forEach var="org" items="<%=((CompanySection) section).getCompanies()%>">
+                        <c:forEach var="company" items="<%=((CompanySection) section).getCompanies()%>">
                                     <c:choose>
-                                        <c:when test="${empty org.webSite}">
-                                            <div class="company-name">${org.name}</div>
+                                        <c:when test="${empty company.webSite}">
+                                            <div class="company-name">${company.name}</div>
                                         </c:when>
                                         <c:otherwise>
-                                            <a class="company-name" href="${org.webSite}">${org.name}</a>
+                                            <a class="company-name" href="${company.webSite}">${company.name}</a>
                                         </c:otherwise>
                                     </c:choose>
                             <div class="period-position">
-                                <c:forEach var="position" items="${org.positions}">
+                                <c:forEach var="position" items="${company.positions}">
                                     <jsp:useBean id="position" type="com.urise.webapp.model.Position"/>
                                     <div class="period"><%=HtmlUtil.formatDates(position)%></div>
                                     <div class="position">${position.title}</div>

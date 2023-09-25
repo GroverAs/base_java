@@ -36,7 +36,6 @@ public class Company implements Serializable {
         this.positions = positions;
     }
 
-
     public Company(String name, String webSite, List<Position> positions) {
         this.name=name;
         this.webSite = webSite == null ? "" : webSite;

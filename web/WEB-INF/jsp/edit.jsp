@@ -58,12 +58,12 @@
                         <c:forEach var="company" items="<%=((CompanySection) section).getCompanies()%>"
                                    varStatus="counter">
                             <dl>
-                                <dt>Название учереждения:</dt>
+                                <dt>Название учреждения:</dt>
                                 <dd><input type="text" name='${type}' size="60" value="${company.name}"></dd>
                             </dl>
                             <dl>
-                                <dt>Сайт учереждения:</dt>
-                                <dd><input type="text" name='${type}' size="60" value="${company.webSite}"></dd>
+                                <dt>Сайт учреждения:</dt>
+                                <dd><input type="text" name='${type}webSite' size="60" value="${company.webSite}"></dd>
                             </dl>
                             <br>
                             <div style="margin-left: 30px">
