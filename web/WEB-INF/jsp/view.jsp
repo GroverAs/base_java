@@ -79,7 +79,7 @@
         </c:forEach>
         </div>
         <br>
-        <div class="button-section"><button onclick="window.history.back()">OK</button></div>
+        <div class="button-OK"><button onclick="window.history.back()">OK</button></div>
     </div>
 </div>
 <br>

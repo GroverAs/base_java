@@ -1,0 +1,93 @@
+input, textarea {
+    height: 60px;
+    width: 100%;
+    background: #F0F8FF;
+    border: 0;
+    /*box-shadow: 0 0 50px 0 var(--input-field-shadow) inset;*/
+    padding: 5px 25px 5px 25px;
+    margin: 20px 0 0 0;
+}
+
+.edit-wrapper {
+    font-family: Open Sans, serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #4682B4;
+    height: 100%;
+    min-width: 610px;
+    width: 50%;
+    margin: 0 0 0 25%;
+    display: block;
+}
+
+.section {
+    font-size: 32px;
+    line-height: 44px;
+    margin: 50px 0 0 0;
+}
+
+.label-section {
+    font-size: 18px;
+    line-height: 33px;
+    margin: 40px 0 0 0;
+}
+
+.date-section {
+    display: block;
+}
+
+.date-margin {
+    margin-left: 10px;
+}
+.date {
+    width: 250px;
+    /*margin: 8px;*/
+}
+
+.field {
+    min-height: 60px;
+}
+
+.spacer {
+    width: 100%;
+    min-width: 100%;
+    height: 2px;
+    margin: 30px 0 10px 0;
+    background: #e0e4ea;
+    border-radius: 10px;
+}
+
+.button-section {
+    width: 100%;
+    margin: 0px 0 90px 0;
+    display: inline-flex;
+}
+
+button {
+    font-family: Open Sans, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    height: 50px;
+    margin: 20px 0 10px 0;
+    /*box-sizing: border-box;*/
+    border-radius: 10px;
+}
+
+.cancel-button {
+    width: 100%;
+    /*margin-right: 10px;*/
+    color: #f8f9fa;
+    border: 2px solid;
+    background: #CD5C5C;
+}
+
+.submit-button {
+    width: 100%;
+    /*margin-left: 10px;*/
+    color: #f8f9fa;
+    border: 2px solid;
+    background: #3CB371;
+}

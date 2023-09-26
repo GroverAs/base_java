@@ -14,7 +14,7 @@
     font-size: 32px;
     line-height: 44px;
     margin-top: 40px;
-    color: #696969;
+    color: #4682B4;
 }
 .separate-line {
     width: 100%;
@@ -53,14 +53,14 @@
 }
 
 .section-wrapper {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 .company-name {
     font-weight: bold;
     font-size: 22px;
     line-height: 30px;
-    margin-left: 207px;
+    margin: 35px 0 0 207px;
     text-decoration: none;
 }
 
@@ -93,11 +93,20 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 25px;
-    margin: 35px 0 0 70px;
+    margin: 10px 0 0 207px;
     width: 100%;
 }
 
-.button-section {
-    margin: 40px 0 15px 0;
+.button-OK {
+    width: 40px;
+    margin: 10px 0 15px 0;
     display: inline-flex;
+}
+
+button {
+    color:white;
+    background: #87CEEB;
+    font-weight: 700;
+    border: 2px solid;
+    height: 30px;
 }
