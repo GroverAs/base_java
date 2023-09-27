@@ -2,9 +2,6 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-
-    /*min-height: 100%;*/
-    /*grid-template-rows: 1fr auto;*/
 }
 
 .header {
@@ -49,8 +46,6 @@ body{
 }
 
 dl {
-    /*background: none repeat scroll 0 0 #FAFAFA;*/
-    /*margin: 8px 0;*/
     padding: 0;
 }
 
@@ -60,7 +55,6 @@ dt {
 }
 
 dd {
-    /*display: inline-block;*/
     margin-left: 0;
     vertical-align: top;
 }

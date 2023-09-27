@@ -25,7 +25,7 @@
             <c:forEach var="contactEntry" items="${resume.contacts}">
                 <jsp:useBean id="contactEntry"
                              type="java.util.Map.Entry<com.urise.webapp.model.ContactType, java.lang.String>"/>
-                <%=contactEntry.getKey().toHtml(contactEntry.getValue())%><br/>
+                <div><%=contactEntry.getKey().toHtml(contactEntry.getValue())%></div>
             </c:forEach>
         </div>
         <div class="separate-line"></div>
@@ -79,7 +79,7 @@
         </c:forEach>
         </div>
         <br>
-        <div class="button-OK"><button onclick="window.history.back()">OK</button></div>
+        <button class="button-OK" onclick="window.history.back()">OK</button>
     </div>
 </div>
 <br>

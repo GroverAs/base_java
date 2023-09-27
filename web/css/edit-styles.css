@@ -3,7 +3,6 @@ input, textarea {
     width: 100%;
     background: #F0F8FF;
     border: 0;
-    /*box-shadow: 0 0 50px 0 var(--input-field-shadow) inset;*/
     padding: 5px 25px 5px 25px;
     margin: 20px 0 0 0;
 }
@@ -41,7 +40,6 @@ input, textarea {
 }
 .date {
     width: 250px;
-    /*margin: 8px;*/
 }
 
 .field {
@@ -59,7 +57,7 @@ input, textarea {
 
 .button-section {
     width: 100%;
-    margin: 0px 0 90px 0;
+    margin: 0 0 90px 0;
     display: inline-flex;
 }
 
@@ -72,22 +70,30 @@ button {
     align-items: center;
     height: 50px;
     margin: 20px 0 10px 0;
-    /*box-sizing: border-box;*/
     border-radius: 10px;
+    transition: 0.2s;
 }
 
 .cancel-button {
     width: 100%;
-    /*margin-right: 10px;*/
     color: #f8f9fa;
     border: 2px solid;
-    background: #CD5C5C;
+    background-color: #CD5C5C;
+}
+
+.cancel-button:hover{
+    background-color: #f8f9fa;
+    color: #CD5C5C;
 }
 
 .submit-button {
     width: 100%;
-    /*margin-left: 10px;*/
     color: #f8f9fa;
     border: 2px solid;
     background: #3CB371;
+}
+
+.submit-button:hover {
+    background-color: #f8f9fa;
+    color: #3CB371;
 }

@@ -98,15 +98,23 @@
 }
 
 .button-OK {
-    width: 40px;
-    margin: 10px 0 15px 0;
+    width: 45px;
+    margin: 10px 0 30px 0;
     display: inline-flex;
+    background: #87CEEB;
+    color:white;
+    align-items: center;
+}
+
+.button-OK:hover {
+    background-color: white;
+    color: #87CEEB;
 }
 
 button {
-    color:white;
-    background: #87CEEB;
-    font-weight: 700;
+    font-weight: 600;
     border: 2px solid;
-    height: 30px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 8px;
 }

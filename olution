@@ -1,0 +1,426 @@
+[33mcommit ce06bb2181d99677a82b10118f793fffc334a35b[m[33m ([m[1;36mHEAD -> [m[1;32mhw16[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Sep 26 14:11:19 2023 +0500
+
+    hw16 Some style changes
+
+[33mcommit 2b436ee699716d2e42be622d0f07bc88367cbd66[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Sep 25 19:09:33 2023 +0500
+
+    hw16 Link class was added
+
+[33mcommit 4c2d594f7be309b46d70c3f1a498cce39469a7d0[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Sep 25 10:30:44 2023 +0500
+
+    hw16 some slight changes
+
+[33mcommit d2d4d4a2cff80f005a9db716be266ba5007200a6[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Sep 19 22:41:58 2023 +0500
+
+    hw16 add constructor in Company
+
+[33mcommit ac6e50d041617b06235e94dbf03873fc27b403ea[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Sep 17 16:51:49 2023 +0500
+
+    hw16 add changes in ResumeSe, add some css styles
+
+[33mcommit 5d45ce8538d69f734521ae052c7e7b8432baebe8[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Sep 10 23:55:01 2023 +0500
+
+    hw16 doPost, doGet, HtmlUtil
+
+[33mcommit 05ffb84923b8aad33f84d81c5df7c3ab02824577[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Sep 7 18:50:53 2023 +0500
+
+    hw16 doPost Sections
+
+[33mcommit 2bd78e4c5faeeea4c9bf5c85e2e333ccab1f8037[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Sep 5 22:03:08 2023 +0500
+
+    hw16 add Contacts in doPost
+
+[33mcommit c7b19fe55e53081bb9bcadf46f27215f098fa450[m[33m ([m[1;32mmaster[m[33m, [m[1;32mhw15[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Aug 31 22:19:53 2023 +0500
+
+    hw15 JSTL
+
+[33mcommit 2273b538953b13055319dc7b4523e2fce3aaba93[m[33m ([m[1;31morigin/hw15[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Aug 28 23:21:30 2023 +0500
+
+    hw15 ResumeServlet + Config correct data
+
+[33mcommit 1a129dfccc0a89f71785fe6dc45471069a60e369[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Aug 26 10:51:13 2023 +0500
+
+    hw15 ResumeServlet
+
+[33mcommit 00e08dab601e1ee3365267c6ca0620179bf61a71[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Aug 19 23:24:49 2023 +0500
+
+    hw15 SqlStorage sections
+
+[33mcommit 3a17fbf4c1083cbb0103064cdf79783f9eeaa395[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Aug 16 17:12:48 2023 +0500
+
+    hw15 add Web Facet. web.xml.
+
+[33mcommit f789d58171c1d57249b041556dd832355bfc20ef[m[33m ([m[1;31morigin/hw14[m[33m, [m[1;32mhw14[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Aug 13 13:35:53 2023 +0500
+
+    hw14 SqlStorage add Sections
+
+[33mcommit 63cb0f2dfdb0cb0a3a35c15ff298b1e1c706703c[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Aug 10 22:01:44 2023 +0500
+
+    hw14 LEFT JOIN SqlStorage
+
+[33mcommit 2550dcbd479ad618ee1f80c276ff06506408605f[m[33m ([m[1;31morigin/hw13[m[33m, [m[1;32mhw13[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Aug 8 10:19:24 2023 +0500
+
+    hw13 fixed update method in SqlStorage
+
+[33mcommit 15e1c2f1240b25ba64a28a0c1267fa70f5edd4b6[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Aug 7 22:21:40 2023 +0500
+
+    hw13 SqlStorage getAllSorted test fixed
+
+[33mcommit 47032ce4cf371e9b7b86422aabe73f2baf8b9a58[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Aug 5 12:19:09 2023 +0500
+
+    hw13 SqlStorage + SqLHelper
+
+[33mcommit 754a60f8f3b657d5be64becb6f71a7f0bc3a573e[m[33m ([m[1;31morigin/hw12[m[33m, [m[1;32mhw12[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Jul 30 21:50:54 2023 +0500
+
+    hw12 StreamTasks update
+
+[33mcommit e1adc73b33b724e90019cfa18d891908e94fd039[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jul 29 14:19:43 2023 +0500
+
+    hw12 StreamTask
+
+[33mcommit 5cdcfbdd0ac50e9bed093a5f3a2fe992d6b3bc91[m[33m ([m[1;31morigin/hw11[m[33m, [m[1;32mhw11[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jul 27 10:10:17 2023 +0500
+
+    hw11 update DeadLock
+
+[33mcommit 65cd142e802d898f2c4673516796c54cfdd0c685[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Jul 26 17:27:57 2023 +0500
+
+    hw11 DeadLock
+
+[33mcommit c5331add9b24aea8294a971634458d417afd0e75[m[33m ([m[1;31morigin/hw10[m[33m, [m[1;32mhw10[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Jul 24 22:05:16 2023 +0500
+
+    hw10 add readList in DataStreamSerializer
+
+[33mcommit 14ebb4dd454496672e62ecfc0531a0223ea06a08[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jul 22 18:36:07 2023 +0500
+
+    hw10 DataStreamSerializer with functional interfaces updated
+
+[33mcommit bcb05720d0f6c3b6e973e889675bef9b2b9b95fd[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jul 22 12:19:44 2023 +0500
+
+    hw10 update DataStreamSerializer with functional interfaces
+
+[33mcommit b5310056614a3e94801e84a7fbe81578f3b8f0d9[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Fri Jul 21 10:19:46 2023 +0500
+
+    hw10 DataStreamSerializer with functional interfaces
+
+[33mcommit 612abfc4773374c62bdf54fd0ae1c90f207f943c[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jul 20 23:47:43 2023 +0500
+
+    hw10 final update DataStreamSerializer
+
+[33mcommit 8193f88512dbf4f31bc1c41acc900e762bbc7f47[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jul 20 22:35:07 2023 +0500
+
+    hw10 last update DataStreamSerializer
+
+[33mcommit 241a38ff76fe5dce4ecec40634524b3de3fba87c[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Jul 19 13:30:46 2023 +0500
+
+    hw10 update DataStreamSerializer
+
+[33mcommit ebdb4900582a21dd28de9f230ea563fba68aa1b2[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jul 18 17:07:01 2023 +0500
+
+    hw10 DataStreamSerializer
+
+[33mcommit 86523e2e5e8475d40d32495996fc8c3670532b41[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Jul 16 17:29:54 2023 +0500
+
+    hw10 JsonParser
+
+[33mcommit ef2273f11bd042bc96bba478660e48a201c908a2[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jul 13 19:14:59 2023 +0500
+
+    hw10 XmlPathStorageTest & add LocalDateAdapter
+
+[33mcommit a863adb679f350f1bfd757dbabc1a41d9207cfd3[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Jul 12 23:24:16 2023 +0500
+
+    hw10 XmlParser
+
+[33mcommit 3c7da316ef8658228e73f59f09586e51a2a9d2f0[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/hw9[m[33m, [m[1;32mhw9[m[33m)[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Jul 10 13:53:59 2023 +0500
+
+    hw9 update File/PathStorage, add Serializer interface
+
+[33mcommit c152bf04b99d90eb5a46fac4f1223816cd72d899[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Jul 9 17:29:48 2023 +0500
+
+    hw9 update MainFile
+
+[33mcommit f8ba09a999b805589eeeb950d1ea84f799937a72[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Jul 9 16:41:26 2023 +0500
+
+    hw9 AbstractPathStorage & ObjectStreamPathStorageTest
+
+[33mcommit f45e70e0529b638af7cd363bc0c75f9153a8c933[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Fri Jul 7 23:29:46 2023 +0500
+
+    hw9 ObjectStreamStorageTest
+
+[33mcommit 807a8feb155a30286c86dd9017a9495af7c89a85[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jul 4 23:45:57 2023 +0500
+
+    hw8 create ResumeTestData
+
+[33mcommit f2e83613238aa17b36139e5248a8376712b8801b[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Jul 2 23:59:53 2023 +0500
+
+    hw8 finish AbstractFileStorage & MainFile
+
+[33mcommit 4df8371c97b6e88c1a890797b38f3b5bca83aa56[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jul 1 18:04:31 2023 +0500
+
+    hw8 add recursion in MainFile & update AbstractFileStorage
+
+[33mcommit 6f395821220a99d1a7aa39469cfaf18c9f1d0ea4[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jun 29 22:51:16 2023 +0500
+
+    hw8 add AbstractFileStorage
+
+[33mcommit 384ca66683f4876de721c8b349e57ab650eb2e30[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jun 27 19:23:53 2023 +0500
+
+    hw7 add classes in model
+
+[33mcommit a892861a008f28efae52b0befdce292a9c601a85[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jun 27 00:04:44 2023 +0500
+
+    hw7 add classes in model
+
+[33mcommit f1e298e1dad9497393ab3260b82a7e9d4143871f[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Fri Jun 23 22:31:48 2023 +0500
+
+    hw7 add LOG
+
+[33mcommit aa48647c3f0517c19643622c0527aa64e034d588[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jun 22 23:59:46 2023 +0500
+
+    hw7 add generics
+
+[33mcommit b66212b35c33479b667fde7302123d96479c20b3[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jun 22 22:28:19 2023 +0500
+
+    hw6 changed variable resume to r in all classes
+
+[33mcommit ca58728aca2c75cc54628f5b23936f9f1487c5be[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Jun 21 22:14:50 2023 +0500
+
+    hw6 add getExistingSearchKey & getNotExistingSearchKey in AbstractStorage
+
+[33mcommit 38a715fd58d64d3646c0df1cd029c7ffc76ed532[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Jun 21 00:17:34 2023 +0500
+
+    hw6 MapResumeStorage added
+
+[33mcommit 62a062c30c54987ea173b468a50152085a52408b[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jun 20 00:18:16 2023 +0500
+
+    hw6 fixed AbstractArrayStorage
+
+[33mcommit d5d943ae98e9a89cc8d9e24f81370fb91a8a5ad9[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Jun 19 19:11:20 2023 +0500
+
+    hw6 add AllStorageTest & changed for List<Resume> getAllSorted()
+
+[33mcommit 58d526a2d9dc474600591c0abe32519726167dab[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jun 17 17:34:04 2023 +0500
+
+    hw5 update MapStorage
+
+[33mcommit 4ab17e57ac71ea1ad11d0aef6f42b346405a0996[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jun 17 10:50:10 2023 +0500
+
+    hw5 update
+
+[33mcommit 9adc93fe2c02acb09fb44a9a07425175ab3e12bd[m
+Merge: e2a0bb1 88a3866
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jun 15 22:11:01 2023 +0500
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit e2a0bb191aec2f7fe1dbef3c351c8c6cc9154a3a[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jun 15 20:51:21 2023 +0500
+
+    hw5 add MapStorage & MapStorageTest & AbstractArrayStorageTest
+
+[33mcommit 88a3866683cffba428b5357db9d20b5e0e16d692[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Thu Jun 15 20:51:21 2023 +0500
+
+    hw5 add MapStorage & MapStorageTest
+
+[33mcommit 7ae9030ff2fb6f2a59fe15c7c04e2f00d9548007[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed Jun 14 23:20:55 2023 +0500
+
+    hw5 doDelete & getSearchKey changed
+
+[33mcommit 3cb23caa1a749bcdee35850f1bce99e860d673e5[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jun 13 23:23:52 2023 +0500
+
+    hw5 add ListStorage & ListStorageTest
+
+[33mcommit 0bd45014e4fbcf41bae2fe29f2c8c33bee04ba79[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jun 13 12:14:12 2023 +0500
+
+    hw5 add AbstractStorage
+
+[33mcommit 2d14ea62e89556ee0fa9e27de406be8126010f01[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jun 10 21:31:28 2023 +0500
+
+    hw5 MainCollections added
+
+[33mcommit 106af6f755ed1b64b9336b33c9fc7044a80d6f52[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Fri Jun 9 11:29:57 2023 +0500
+
+    hw4 added saveOverflow, getNotExist, saveExist, deleteNotExist, updateNotExist
+
+[33mcommit ab981edbcea6d5e9c1e354cfacd26abf13b4555d[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue Jun 6 21:19:03 2023 +0500
+
+    hw4 testing methods in AbstractArrayStorageTest
+
+[33mcommit d508c8b70c7ebf211450b2cf80b26f98202fc46c[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon Jun 5 10:26:31 2023 +0500
+
+    hw4 add MainReflection & AbstractArrayStorageTest
+
+[33mcommit cb294b6331039b2da4197d14814f7ed852946384[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sun Jun 4 11:14:54 2023 +0500
+
+    hw4 add exceptions
+
+[33mcommit cad72e967413e95223dbfafb47071375470b9fe0[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat Jun 3 09:12:25 2023 +0500
+
+    hw3 final
+
+[33mcommit 5e664ed323e1636971663c5b9cd58571c9ce35c6[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Fri Jun 2 13:47:35 2023 +0500
+
+    hw3 updated
+
+[33mcommit d593e527dd42837a1aedc08519fce2dd04521b53[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed May 31 23:37:07 2023 +0500
+
+    hw3
+
+[33mcommit 8a4adafe217c8f9de170314209748b56c01cb9eb[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Wed May 31 22:08:14 2023 +0500
+
+    add logic in storage classes
+
+[33mcommit cc989ee005562d64faff2a9f3f6e124859529d23[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Tue May 30 22:13:55 2023 +0500
+
+    Introduce abstract storage and sorted storage
+
+[33mcommit 8b3e95d25b73ff59e88b6a55570001ab823e6e5e[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Mon May 29 22:13:51 2023 +0500
+
+    Create AbstractArrayStorage & SortedArrayStorage
+
+[33mcommit 493a5b5275f6ce863cd6d0940396812438c21c1e[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat May 27 18:31:42 2023 +0500
+
+    Create interface Storage
+
+[33mcommit 8c89157aa0f7160fde5168debc098c3718ca10c8[m
+Author: Alexander Savelev <alex.savelev21@yandex.ru>
+Date:   Sat May 27 14:22:16 2023 +0500
+
+    hw2

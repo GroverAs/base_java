@@ -14,12 +14,9 @@ public class Company implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public static final Company EMPTY = new Company("","", Position.EMPTY);
+    public static final Company EMPTY = new Company("", "", Position.EMPTY);
 
     private Link homePage;
-    private String name;
-
-//    private String webSite;
 
     private List<Position> positions = new ArrayList<>();
 
@@ -64,31 +61,4 @@ public class Company implements Serializable {
                 ", positions=" + positions +
                 '}';
     }
-
-    //    public Company(String name, String webSite, Position... positions) {
-//        this.name = name;
-//        this.webSite = webSite == null ? "" : webSite;
-//        this.positions = Arrays.asList(positions);
-//    }
-//
-//    public Company(String name, List<Position> positions){
-//        this.name = name;
-//        this.positions = positions;
-//    }
-//
-//    public Company(String name, String webSite, List<Position> positions) {
-//        this.name=name;
-//        this.webSite = webSite == null ? "" : webSite;
-//        this.positions = positions;
-//    }
-
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public String getWebSite() {
-//        return webSite;
-//    }
-
-
 }

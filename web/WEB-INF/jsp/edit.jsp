@@ -17,14 +17,12 @@
     <div class="scrollable-panel">
         <div class="edit-wrapper">
             <div class="section">Имя:</div>
-            <label>
-                <input type="text" name="fullName" size=29 value="${resume.fullName}" required pattern="^$|^\S+.*">
-            </label>
+            <input type="text" name="fullName" size=29 value="${resume.fullName}" required pattern="^$|^\S+.*">
             <div class="section">Контакты:</div>
             <c:forEach var="type" items="<%=ContactType.values()%>">
                 <dl>
                     <dd>
-                        <input type="text" placeholder="${type.title}" size=29 value="${resume.getContacts(type)}">
+                        <input type="text" name="${type.name()}" placeholder="${type.title}" size=29 value="${resume.getContacts(type)}">
                     </dd>
                 </dl>
             </c:forEach>
@@ -89,8 +87,8 @@
                 </c:forEach>
                 <div class="spacer"></div>
                 <div class="button-section">
-                <button class="submit-button" type="submit">Сохранить</button>
-                <button class="cancel-button" type="reset">Отменить</button>
+                    <button class="submit-button" type="submit">Сохранить</button>
+                    <button class="cancel-button" type="reset">Отменить</button>
                 </div>
             </div>
         </div>
