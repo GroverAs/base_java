@@ -1,4 +1,5 @@
 package com.urise.webapp;
+
 import com.urise.webapp.storage.SqlStorage;
 import com.urise.webapp.storage.Storage;
 
@@ -9,14 +10,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
-        private static final File PROPS = new File(System.getProperty("homeDirectory"), "config\\resumes.properties");
-//    private static final String PROPS = "/resumes.properties";
+    private static final File PROPS = new File(System.getProperty("homeDirectory"), "config\\resumes.properties");
+    //    private static final String PROPS = "/resumes.properties";
     private static final Config INSTANCE = new Config();
     private final Storage storage;
     private final File storageDir;
-    public static Config getInstance() {
-        return INSTANCE;
-    }
 
     private Config() {
         try (InputStream is = new FileInputStream(PROPS)) {
@@ -32,9 +30,14 @@ public class Config {
         }
     }
 
+    public static Config getInstance() {
+        return INSTANCE;
+    }
+
     public File getStorageDir() {
         return storageDir;
     }
+
     public Storage getStorage() {
         return storage;
     }
